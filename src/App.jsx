@@ -32,9 +32,7 @@ export default function App() {
           href="#top"
           aria-label="The Chanakya Council home"
         >
-          <img
-            src="/chanakya-logo.png"
-            alt="The Chanakya Council logo"
+          
           />
         </a>
 
@@ -100,13 +98,7 @@ export default function App() {
           <div className="tower-top" />
           <div className="tower-body" />
         </div>
-
-        <div className="hero-content">
-          <div className="emblem-wrap">
-            <img
-              className="hero-logo"
-              src="/chanakya-logo.png"
-              alt="The Chanakya Council emblem"
+            
             />
           </div>
 

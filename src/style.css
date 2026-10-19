@@ -1,12 +1,28 @@
 
+/* ============================================
+   CHANAKYA MUN
+   COMPLETE WEBSITE STYLESHEET
+   Vintage landing page + FAQ section
+   ============================================ */
+
+/* ---------- GLOBAL SETTINGS ---------- */
+
 :root {
   font-family: "Inter", sans-serif;
   color: #244d42;
   background: #eee2c5;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --paper: #eee2c5;
+  --paper-light: #f4e9ce;
+  --green: #198348;
+  --green-dark: #285b4a;
+  --teal: #176b78;
+  --muted: #857b69;
 }
 
 * {
@@ -16,6 +32,7 @@
 html {
   min-width: 320px;
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 body {
@@ -24,19 +41,44 @@ body {
   min-height: 100vh;
 }
 
+body,
+button,
+a {
+  font-family: "Inter", sans-serif;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Vintage parchment background */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: #fff;
+  background: #285b4a;
+}
+
+
+/* ============================================
+   MAIN PAGE AND VINTAGE PAPER BACKGROUND
+   ============================================ */
 
 .page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   min-height: 100vh;
   min-height: 100svh;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
 
   background:
     radial-gradient(
@@ -63,12 +105,13 @@ a {
     );
 }
 
-/* Fine paper grain */
+/* Subtle aged-paper texture */
 
 .paper-grain {
   position: absolute;
   inset: 0;
   z-index: -1;
+
   pointer-events: none;
   opacity: 0.34;
 
@@ -105,17 +148,25 @@ a {
     23px 29px;
 }
 
-/* Header */
+
+/* ============================================
+   TOP NAVIGATION
+   ============================================ */
 
 .topbar {
+  position: relative;
+  z-index: 5;
+
   width: min(1420px, calc(100% - 64px));
   min-height: 86px;
+
   margin: 0 auto;
   padding: 18px 26px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 
   border: 1px solid rgba(255, 251, 232, 0.34);
   border-top: 0;
@@ -123,34 +174,39 @@ a {
 
   background: rgba(255, 248, 226, 0.17);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .wordmark {
   display: flex;
   flex-direction: column;
   gap: 1px;
+
+  flex-shrink: 0;
 }
 
 .wordmark-title {
+  color: #285b4a;
+
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 23px;
-  line-height: 1;
   font-weight: 700;
+  line-height: 1;
+
   letter-spacing: 0.13em;
-  color: #285b4a;
 }
 
 .wordmark-subtitle {
+  color: #756b56;
+
   font-size: 8px;
   letter-spacing: 0.19em;
-  color: #756b56;
 }
-
-/* Header navigation */
 
 .nav-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -158,11 +214,13 @@ a {
   display: grid;
   place-items: center;
 
+  flex-shrink: 0;
   width: 42px;
   height: 42px;
 
   color: #201f1b;
   background: rgba(255, 255, 255, 0.9);
+
   border: 1px solid rgba(58, 45, 25, 0.12);
   border-radius: 50%;
 
@@ -176,20 +234,36 @@ a {
   background: #fff;
 }
 
-/* Buttons */
+.icon-link:focus-visible,
+.pill:focus-visible,
+.scroll-cue:focus-visible,
+.faq-more-link:focus-visible {
+  outline: 3px solid #198348;
+  outline-offset: 4px;
+}
+
+
+/* ============================================
+   SHARED BUTTONS
+   ============================================ */
 
 .pill {
-  min-height: 43px;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
+  min-height: 43px;
   padding: 0 20px;
+
+  border: 0;
   border-radius: 999px;
 
   font-size: 15px;
   font-weight: 500;
+  line-height: 1.2;
+
+  cursor: pointer;
 
   transition:
     transform 0.18s ease,
@@ -208,17 +282,21 @@ a {
 }
 
 .pill-register {
+  min-height: 47px;
+  padding: 0 25px;
+
   color: #fffdf5;
   background: #198348;
-  padding: 0 25px;
-  min-height: 47px;
 }
 
 .pill-register:hover {
   filter: brightness(1.06);
 }
 
-/* Hero section */
+
+/* ============================================
+   HERO / FIRST SCREEN
+   ============================================ */
 
 .hero {
   min-height: calc(100svh - 86px);
@@ -227,29 +305,32 @@ a {
   place-items: center;
 
   padding: 48px 22px 36px;
+
   text-align: center;
 }
 
 .hero-content {
-  width: min(100%, 760px);
-
   display: flex;
-  align-items: center;
   flex-direction: column;
-}
+  align-items: center;
 
-/* Introductory text */
+  width: min(100%, 760px);
+}
 
 .eyebrow {
   margin: 0 0 16px;
 
   color: #877758;
+
   font-size: 10px;
+  font-weight: 500;
   letter-spacing: 0.19em;
+  line-height: 1.8;
   text-transform: uppercase;
 }
 
-/* Decorative divider */
+
+/* Decorative separator */
 
 .ornament {
   display: flex;
@@ -258,30 +339,34 @@ a {
   gap: 12px;
 
   width: 140px;
+
   color: #9d8a5f;
 }
 
 .ornament span {
-  height: 1px;
   flex: 1;
+  height: 1px;
+
   background: #b6a278;
 }
 
 .ornament i {
-  font-style: normal;
   font-size: 14px;
+  font-style: normal;
 }
 
-/* Main heading */
+
+/* Main title */
 
 h1 {
   margin: 12px 0 0;
 
   color: #176b78;
-  font-family: "Cormorant Garamond", Georgia, serif;
 
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(48px, 7.5vw, 82px);
   font-weight: 600;
+
   letter-spacing: 0.025em;
   line-height: 0.95;
 }
@@ -290,15 +375,17 @@ h1 span {
   color: #527c40;
 }
 
-/* Hindi heading */
+
+/* Hindi title */
 
 .hindi-title {
   margin: 7px 0 4px;
 
-  font-family: "Noto Serif Devanagari", serif;
   color: #527c40;
 
+  font-family: "Noto Serif Devanagari", serif;
   font-size: clamp(25px, 4vw, 39px);
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -306,20 +393,25 @@ h1 span {
   margin: 2px 0 23px;
 
   color: #176b78;
+
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.025em;
 }
 
-/* Event date */
+
+/* Event dates */
 
 .date-block {
   color: #47754b;
+
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 700;
 }
 
 .date-line {
   margin: 0;
+
   font-size: clamp(29px, 4vw, 37px);
   line-height: 1.05;
 }
@@ -332,11 +424,13 @@ h1 span {
 
 .month-line {
   margin: 0;
+
   font-size: clamp(30px, 4.4vw, 40px);
   line-height: 1.1;
 }
 
-/* Slogans */
+
+/* Conference slogans */
 
 .slogan {
   margin: 23px 0 22px;
@@ -345,10 +439,11 @@ h1 span {
 .slogan-hindi {
   margin: 0 0 8px;
 
-  font-family: "Noto Serif Devanagari", serif;
   color: #6d6255;
 
+  font-family: "Noto Serif Devanagari", serif;
   font-size: clamp(21px, 3.3vw, 31px);
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -356,23 +451,326 @@ h1 span {
   margin: 0;
 
   color: #857b69;
+
   font-size: clamp(11px, 1.5vw, 14px);
+  font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0.01em;
 }
 
-/* Footer */
+
+/* Hero footer */
 
 .footer-note {
   margin: 18px 0 0;
 
   color: #9b8b6b;
+
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 15px;
   font-style: italic;
 }
 
-/* Desktop */
+
+/* Scroll to FAQ */
+
+.scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 30px;
+
+  color: #8b7958;
+
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+
+  transition: color 0.2s ease;
+}
+
+.scroll-cue:hover {
+  color: #285b4a;
+}
+
+.scroll-cue svg {
+  animation: faq-bounce 1.8s infinite;
+}
+
+@keyframes faq-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+
+.faq-section {
+  position: relative;
+
+  padding: 110px 32px 120px;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(222, 205, 165, 0.17),
+      transparent 50%
+    ),
+    #f8f6f0;
+
+  color: #171914;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(0, 1.12fr);
+
+  align-items: center;
+  gap: clamp(36px, 5vw, 88px);
+
+  width: min(1400px, 100%);
+  margin: 0 auto;
+}
+
+
+/* Photo on the left */
+
+.faq-visual {
+  position: relative;
+  overflow: hidden;
+
+  min-width: 0;
+  min-height: 390px;
+
+  aspect-ratio: 0.96;
+
+  border-radius: 15px;
+  background: #ddd3be;
+}
+
+.faq-visual img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: grayscale(100%);
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+}
+
+.faq-visual:hover img {
+  transform: scale(1.035);
+  filter: grayscale(70%);
+}
+
+
+/* Caption over photo */
+
+.faq-image-caption {
+  position: absolute;
+  inset: auto 0 0;
+
+  padding: 55px 25px 24px;
+
+  color: #fff;
+
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.72)
+  );
+}
+
+.faq-image-caption span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.faq-image-caption p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+
+/* FAQ heading */
+
+.faq-content {
+  min-width: 0;
+}
+
+.faq-eyebrow {
+  margin: 0 0 12px;
+
+  color: #20834b;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.faq-heading {
+  margin: 0;
+
+  color: #1d3429;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 3.5vw, 47px);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.faq-intro {
+  margin: 13px 0 29px;
+
+  color: #77766e;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+
+/* Expandable FAQ cards */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq-item {
+  overflow: hidden;
+
+  border: 1px solid #c8d9ca;
+  border-top: 2px solid #198348;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: #249254;
+
+  box-shadow:
+    0 8px 24px rgba(40, 76, 48, 0.055);
+}
+
+
+/* Question row */
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 78px;
+  padding: 23px 25px;
+
+  color: #151713;
+
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid #198348;
+  outline-offset: -4px;
+}
+
+
+/* Question arrow */
+
+.faq-chevron {
+  flex: 0 0 auto;
+
+  color: #252923;
+
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+
+/* FAQ answer */
+
+.faq-answer {
+  padding: 0 25px 25px;
+}
+
+.faq-answer p {
+  margin: 0;
+
+  color: #686963;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.95;
+}
+
+
+/* Brochure link under FAQs */
+
+.faq-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 27px;
+
+  color: #237548;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.faq-more-link:hover {
+  color: #144a2d;
+}
+
+
+/* ============================================
+   DESKTOP LAYOUT
+   ============================================ */
 
 @media (min-width: 900px) {
   .hero {
@@ -384,13 +782,49 @@ h1 span {
   }
 }
 
-/* Mobile */
+
+/* ============================================
+   TABLETS
+   ============================================ */
+
+@media (max-width: 850px) {
+  .faq-section {
+    padding: 75px 24px 85px;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+
+    max-width: 650px;
+  }
+
+  .faq-visual {
+    min-height: 300px;
+    aspect-ratio: 1.35;
+  }
+
+  .faq-heading {
+    font-size: clamp(34px, 6vw, 44px);
+  }
+
+  .faq-item summary {
+    font-size: 16px;
+  }
+}
+
+
+/* ============================================
+   MOBILE PHONES
+   ============================================ */
 
 @media (max-width: 600px) {
   .topbar {
     width: calc(100% - 24px);
     min-height: 72px;
+
     padding: 14px 12px;
+    gap: 8px;
   }
 
   .wordmark-title {
@@ -399,6 +833,7 @@ h1 span {
 
   .wordmark-subtitle {
     font-size: 6px;
+    letter-spacing: 0.13em;
   }
 
   .nav-actions {
@@ -418,6 +853,7 @@ h1 span {
   .pill {
     min-height: 37px;
     padding: 0 13px;
+
     font-size: 12px;
   }
 
@@ -428,6 +864,10 @@ h1 span {
   .hero {
     min-height: calc(100svh - 72px);
     padding: 45px 18px 30px;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .eyebrow {
@@ -443,15 +883,122 @@ h1 span {
     max-width: 360px;
     margin-top: 22px;
   }
+
+  .scroll-cue {
+    margin-top: 25px;
+  }
+
+  .faq-section {
+    padding: 55px 17px 65px;
+  }
+
+  .faq-layout {
+    gap: 30px;
+  }
+
+  .faq-visual {
+    min-height: 250px;
+    aspect-ratio: 1.1;
+  }
+
+  .faq-image-caption {
+    padding: 45px 18px 18px;
+  }
+
+  .faq-image-caption span {
+    font-size: 22px;
+  }
+
+  .faq-image-caption p {
+    font-size: 11px;
+  }
+
+  .faq-item summary {
+    min-height: 70px;
+    padding: 19px 17px;
+    gap: 12px;
+
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    padding: 0 17px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .faq-intro {
+    font-size: 13px;
+  }
+
+  .faq-list {
+    gap: 15px;
+  }
+
+  .faq-more-link {
+    margin-top: 23px;
+  }
 }
 
-/* Accessibility */
+
+/* ============================================
+   VERY SMALL SCREENS
+   ============================================ */
+
+@media (max-width: 360px) {
+  .topbar {
+    width: calc(100% - 16px);
+    padding: 12px 8px;
+  }
+
+  .wordmark-title {
+    font-size: 16px;
+  }
+
+  .wordmark-subtitle {
+    font-size: 5px;
+  }
+
+  .nav-actions {
+    gap: 4px;
+  }
+
+  .icon-link {
+    width: 31px;
+    height: 31px;
+  }
+
+  .pill-dark {
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: 43px;
+  }
+
+  .faq-section {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+}
+
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
+

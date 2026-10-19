@@ -11,7 +11,6 @@
   --green-dark: #176c3e;
   --muted: #70685c;
   --border: rgba(102, 81, 58, 0.2);
-
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'DM Sans', Arial, sans-serif;
   --hindi: 'Noto Serif Devanagari', serif;
@@ -52,9 +51,7 @@ svg {
   flex-shrink: 0;
 }
 
-/* =========================
-   HERO AND BACKGROUND
-========================= */
+/* HERO BACKGROUND */
 
 .hero {
   position: relative;
@@ -65,17 +62,11 @@ svg {
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
-
   background-image: url("/chanakya-background.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
-
-/* Faded background overlay.
-   0.72 = soft, faded monuments.
-   Increase to 0.82 for a lighter image.
-   Decrease to 0.55 for more visible monuments. */
 
 .hero::before {
   content: "";
@@ -86,9 +77,7 @@ svg {
   pointer-events: none;
 }
 
-/* =========================
-   FLOATING NAVIGATION
-========================= */
+/* FLOATING NAVIGATION */
 
 .floating-nav {
   position: relative;
@@ -101,7 +90,6 @@ svg {
   gap: 22px;
   margin: 0 auto 34px;
   padding: 16px 25px;
-
   background: rgba(239, 228, 207, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 19px;
@@ -179,9 +167,7 @@ svg {
   cursor: pointer;
 }
 
-/* =========================
-   HERO CONTENT
-========================= */
+/* HERO CONTENT */
 
 .hero-content {
   width: min(100%, 720px);
@@ -226,20 +212,14 @@ svg {
   font-family: var(--serif);
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 0.3px;
 }
 
 .hero-date {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
   margin-top: 24px;
   color: #356b46;
-}
-
-.hero-date > svg {
-  display: none;
 }
 
 .hero-date > div {
@@ -284,9 +264,7 @@ svg {
   line-height: 1.8;
 }
 
-/* =========================
-   GREEN ACTION BUTTONS
-========================= */
+/* BUTTONS */
 
 .hero-actions {
   display: flex;
@@ -343,12 +321,9 @@ svg {
 .brochure-button:hover {
   color: #ffffff;
   background: var(--green-dark);
-  border-color: var(--green-dark);
 }
 
-/* =========================
-   ONLINE LOCATION CARD
-========================= */
+/* ONLINE CARD */
 
 .location-card {
   width: min(100%, 270px);
@@ -358,7 +333,6 @@ svg {
   gap: 15px;
   margin-top: 15px;
   padding: 14px 17px;
-
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--green);
   border-radius: 23px;
@@ -401,9 +375,7 @@ svg {
   color: var(--green);
 }
 
-/* =========================
-   SCROLL CUE
-========================= */
+/* SCROLL CUE */
 
 .scroll-cue {
   display: flex;
@@ -432,17 +404,11 @@ svg {
   }
 }
 
-/* =========================
-   ABOUT SECTION
-========================= */
+/* ABOUT */
 
 .about-section {
   padding: 100px 24px;
-  background: linear-gradient(
-    180deg,
-    #e4e9d7 0%,
-    #f0ead9 100%
-  );
+  background: linear-gradient(180deg, #e4e9d7 0%, #f0ead9 100%);
   border-top: 1px solid rgba(95, 113, 73, 0.12);
 }
 
@@ -529,9 +495,95 @@ svg {
   margin-top: 32px;
 }
 
-/* =========================
-   BROCHURE SECTION
-========================= */
+/* FAQ */
+
+.faq-section {
+  padding: 90px 24px;
+  background: #eee7d7;
+  border-top: 1px solid var(--border);
+}
+
+.faq-inner {
+  width: min(100%, 850px);
+  margin: 0 auto;
+}
+
+.faq-heading {
+  margin-bottom: 38px;
+  text-align: center;
+}
+
+.faq-heading h2 {
+  margin: 0;
+  color: #25251f;
+  font-family: var(--serif);
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.faq-heading > p:last-child {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.faq-list {
+  border-top: 1px solid var(--border);
+}
+
+.faq-item {
+  padding: 21px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+  position: relative;
+  padding-right: 30px;
+  color: var(--dark);
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  top: 0;
+  right: 4px;
+  color: var(--green);
+  font-family: var(--sans);
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.faq-item[open] .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.faq-answer a {
+  color: var(--green-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* BROCHURE */
 
 .brochure-section {
   padding: 80px 24px;
@@ -584,9 +636,7 @@ svg {
   background: transparent;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .site-footer {
   padding: 45px 24px 28px;
@@ -644,14 +694,11 @@ svg {
   line-height: 1.8;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* TABLET AND MOBILE */
 
 @media (max-width: 768px) {
   .hero {
     padding: 20px 17px 40px;
-    background-position: center center;
   }
 
   .floating-nav {
@@ -771,14 +818,28 @@ svg {
     padding: 75px 22px;
   }
 
+  .faq-section {
+    padding: 65px 20px;
+  }
+
+  .faq-heading {
+    margin-bottom: 28px;
+  }
+
+  .faq-question {
+    font-size: 21px;
+  }
+
+  .faq-answer {
+    font-size: 13px;
+  }
+
   .brochure-section {
     padding: 65px 22px;
   }
 }
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* SMALL PHONES */
 
 @media (max-width: 420px) {
   .hero {
@@ -889,7 +950,7 @@ svg {
   }
 }
 
-/* ACCESSIBILITY */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -903,5 +964,4 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-    }
-  
+  }

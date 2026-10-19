@@ -1,215 +1,284 @@
 
-import React from "react";
+import { useState } from "react";
 import {
-  Home,
-  CircleHelp,
+  Menu,
+  X,
+  FileText,
   ArrowUpRight,
+  MapPin,
+  CalendarDays,
+  Globe,
   ChevronDown,
 } from "lucide-react";
+
+const REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeHp8VdJ5KmRHe-iog6ss5duwlU9GV-p1h1y-eOZM6_35EVeQ/viewform";
 
 const BROCHURE_URL =
   "https://drive.google.com/file/d/1ChDsQg5mgs1BUsv8aG48RJZXtixpHa05/view";
 
-const REGISTER_URL =
-  "https://champarena.co.in/e/the-chanakya-council-mun";
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-const faqs = [
-  {
-    question: "What is Chanakya MUN?",
-    answer:
-      "Chanakya MUN is a youth-led Model United Nations organization dedicated to helping students discover their potential through diplomacy, debate, public speaking, and critical thinking. Inspired by the values of strategic thought, leadership, and reasoned decision-making, Chanakya MUN provides a platform for young minds to explore global issues, represent perspectives, negotiate solutions, and develop the confidence to lead. Our vision is to nurture informed, articulate, and responsible future leaders.",
-  },
-  {
-    question: "Who is the Founder of Chanakya MUN?",
-    answer:
-      "Chanakya MUN was founded by Shivansh Dixit, a 13-year-old passionate about Model United Nations, diplomacy, and leadership. Driven by a love for debate, policy discussions, and intellectual growth, Shivansh envisioned a platform where young people could express their ideas, challenge perspectives, and learn to lead with confidence. Through Chanakya MUN, he aims to make meaningful MUN experiences accessible to ambitious students and inspire the next generation of thoughtful leaders.",
-  },
-  {
-    question: "Where is Chanakya MUN taking place?",
-    answer:
-      "Chanakya MUN is being conducted entirely online, allowing delegates to participate remotely from their own locations. You can engage in committee discussions, exchange ideas, collaborate with fellow delegates, and experience the spirit of Model United Nations without travelling to a physical venue. Check the official conference announcements and brochure for the online platform, schedule, and participation instructions.",
-  },
-];
+  const closeMenu = () => setMenuOpen(false);
 
-function FAQSection() {
   return (
-    <section className="faq-section" id="faq">
-      <div className="faq-layout">
-        <div className="faq-visual">
-          <img
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
-            alt="Students learning and collaborating together"
-            loading="lazy"
-          />
+    <main>
+      {/* HERO / LANDING SECTION */}
+      <section className="hero" id="home">
+        {/* FLOATING NAVIGATION */}
+        <header className="floating-nav">
+          <a
+            className="nav-wordmark"
+            href="#home"
+            onClick={closeMenu}
+            aria-label="Chanakya MUN home"
+          >
+            <span className="nav-wordmark-main">CHANAKYA</span>
+            <span className="nav-wordmark-sub">चाणक्य MUN</span>
+          </a>
 
-          <div className="faq-image-caption">
-            <span>CHANAKYA MUN</span>
-            <p>Ideas. Diplomacy. Leadership.</p>
+          <button
+            className="menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={25} /> : <Menu size={25} />}
+          </button>
+
+          <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
+            <a href="#home" onClick={closeMenu}>
+              Home
+            </a>
+
+            <a href="#about" onClick={closeMenu}>
+              About
+            </a>
+
+            <a
+              href={BROCHURE_URL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMenu}
+            >
+              <FileText size={16} />
+              Brochure
+            </a>
+
+            <a
+              className="nav-register"
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMenu}
+            >
+              Register <ArrowUpRight size={16} />
+            </a>
+          </nav>
+        </header>
+
+        {/* MAIN HERO CONTENT — NO LOGO */}
+        <div className="hero-content">
+          <p className="hero-eyebrow">
+            POLICY · DIPLOMACY · LEADERSHIP
+          </p>
+
+          <h1 className="hero-title">CHANAKYA</h1>
+
+          <p className="hero-hindi-title">चाणक्य MUN</p>
+
+          <p className="hero-subtitle">
+            Model United Nation
+          </p>
+
+          <div className="hero-date">
+            <CalendarDays size={17} strokeWidth={1.8} />
+            <div>
+              <span>16th and 17th</span>
+              <strong>January 2027</strong>
+            </div>
           </div>
-        </div>
 
-        <div className="faq-content">
-          <p className="faq-eyebrow">KNOW US BETTER</p>
+          <div className="hero-divider" />
 
-          <h2 className="faq-heading">
-            Frequently Asked Questions
+          <h2 className="hero-slogan">
+            नीति से नेतृत्व, तर्क से विजय
           </h2>
 
-          <p className="faq-intro">
-            Everything you need to know about Chanakya MUN.
+          <p className="hero-english-slogan">
+            Leadership through policy, victory through reasoning
           </p>
 
-          <div className="faq-list">
-            {faqs.map((faq, index) => (
-              <details
-                className="faq-item"
-                key={faq.question}
-                open={index === 0}
-              >
-                <summary>
-                  <span>{faq.question}</span>
-                  <ChevronDown
-                    className="faq-chevron"
-                    size={21}
-                  />
-                </summary>
+          {/* ACTION BUTTONS */}
+          <div className="hero-actions">
+            <a
+              className="action-button register-button"
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Register
+              <ArrowUpRight size={17} />
+            </a>
 
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            ))}
+            <a
+              className="action-button brochure-button"
+              href={BROCHURE_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FileText size={17} />
+              Brochure
+            </a>
           </div>
 
-          <a
-            href={BROCHURE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="faq-more-link"
-          >
-            Explore our brochure
-            <ArrowUpRight size={17} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+          {/* ONLINE LOCATION CARD */}
+          <div className="location-card">
+            <div className="location-icon">
+              <MapPin size={24} strokeWidth={1.9} />
+            </div>
 
-export default function App() {
-  return (
-    <main className="page" id="home">
-      <div className="paper-grain" aria-hidden="true" />
+            <div className="location-text">
+              <strong>Online</strong>
+              <span>Join from anywhere</span>
+            </div>
 
-      <header className="topbar">
-        <a
-          className="wordmark"
-          href="#home"
-          aria-label="Chanakya MUN home"
-        >
-          <span className="wordmark-title">
-            CHANAKYA
-          </span>
-
-          <span className="wordmark-subtitle">
-            MODEL UNITED NATIONS
-          </span>
-        </a>
-
-        <nav className="nav-actions" aria-label="Main navigation">
-          <a
-            className="icon-link"
-            href="#home"
-            aria-label="Home"
-            title="Home"
-          >
-            <Home size={19} />
-          </a>
-
-          <a
-            className="icon-link"
-            href="#faq"
-            aria-label="Frequently asked questions"
-            title="About Chanakya MUN"
-          >
-            <CircleHelp size={19} />
-          </a>
-
-          <a
-            className="pill pill-dark"
-            href={BROCHURE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Brochure
-            <ArrowUpRight size={15} />
-          </a>
-        </nav>
-      </header>
-
-      <section className="hero" aria-labelledby="event-title">
-        <div className="hero-content">
-          <p className="eyebrow">
-            A forum for ideas, diplomacy &amp; leadership
-          </p>
-
-          <div className="ornament" aria-hidden="true">
-            <span />
-            <i>✦</i>
-            <span />
+            <Globe className="location-globe" size={23} />
           </div>
 
-          <h1 id="event-title">
-            CHANAKYA <span>MUN</span>
-          </h1>
-
-          <p className="hindi-title" lang="hi">
-            चाणक्य MUN
-          </p>
-
-          <p className="event-type">
-            MODEL UNITED NATIONS
-          </p>
-
-          <div className="date-block">
-            <p className="date-line">
-              16<sup>th</sup> &amp; 17<sup>th</sup>
-            </p>
-
-            <p className="month-line">
-              January 2027
-            </p>
-          </div>
-
-          <div className="slogan">
-            <p className="slogan-hindi" lang="hi">
-              नीति से नेतृत्व, तर्क से विजय
-            </p>
-
-            <p className="slogan-english">
-              Leadership through policy, victory through reasoning
-            </p>
-          </div>
-
-          <a
-            className="pill pill-register"
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Register
-            <ArrowUpRight size={16} />
-          </a>
-
-          <a className="scroll-cue" href="#faq">
-            <span>DISCOVER CHANAKYA MUN</span>
-            <ChevronDown size={17} />
+          <a className="scroll-cue" href="#about">
+            <span>Discover Chanakya</span>
+            <ChevronDown size={18} />
           </a>
         </div>
       </section>
 
-      <FAQSection />
+      {/* ABOUT SECTION */}
+      <section className="about-section" id="about">
+        <div className="about-inner">
+          <p className="section-eyebrow">THE CHANAKYA COUNCIL</p>
+
+          <h2 className="about-title">
+            Ideas into policy.
+            <br />
+            Voices into change.
+          </h2>
+
+          <div className="section-divider" />
+
+          <p className="about-description">
+            Chanakya MUN is a platform for aspiring diplomats,
+            thoughtful debaters, and future leaders to engage
+            with global issues, develop informed perspectives,
+            and experience the art of diplomacy.
+          </p>
+
+          <p className="about-description">
+            Guided by the spirit of strategic thinking and
+            reasoned debate, we aim to cultivate leadership
+            through policy and victory through reasoning.
+          </p>
+
+          <div className="about-details">
+            <div className="detail-item">
+              <CalendarDays size={22} />
+              <div>
+                <span>CONFERENCE DATES</span>
+                <strong>16–17 January 2027</strong>
+              </div>
+            </div>
+
+            <div className="detail-item">
+              <Globe size={22} />
+              <div>
+                <span>CONFERENCE MODE</span>
+                <strong>Online</strong>
+              </div>
+            </div>
+          </div>
+
+          <a
+            className="action-button register-button about-register"
+            href={REGISTER_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Register for Chanakya MUN
+            <ArrowUpRight size={17} />
+          </a>
+        </div>
+      </section>
+
+      {/* BROCHURE SECTION */}
+      <section className="brochure-section" id="brochure">
+        <div className="brochure-inner">
+          <div className="brochure-icon">
+            <FileText size={27} />
+          </div>
+
+          <p className="section-eyebrow">YOUR NEXT STEP</p>
+
+          <h2>Explore the Brochure</h2>
+
+          <p>
+            Discover the conference details and prepare for
+            your Chanakya MUN experience.
+          </p>
+
+          <a
+            className="action-button brochure-cta"
+            href={BROCHURE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Brochure
+            <ArrowUpRight size={17} />
+          </a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="site-footer">
+        <a className="footer-brand" href="#home">
+          CHANAKYA
+        </a>
+
+        <p className="footer-hindi">चाणक्य MUN</p>
+
+        <p className="footer-tagline">
+          नीति से नेतृत्व, तर्क से विजय
+        </p>
+
+        <div className="footer-links">
+          <a href="#home">Home</a>
+
+          <a href="#about">About</a>
+
+          <a
+            href={BROCHURE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Brochure
+          </a>
+
+          <a
+            href={REGISTER_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Register
+          </a>
+        </div>
+
+        <p className="footer-copyright">
+          © 2027 Chanakya MUN. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }
 
+export default App;
+          

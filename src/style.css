@@ -51,10 +51,11 @@ svg {
   flex-shrink: 0;
 }
 
-/* =========================================
-   HERO BACKGROUND — 24% OPACITY
-   Uses your existing background image.
-   ========================================= */
+/* ==========================================
+   HERO AND BACKGROUND
+   The background sits ABOVE the cream base
+   but BELOW every piece of content.
+   ========================================== */
 
 .hero {
   position: relative;
@@ -65,28 +66,33 @@ svg {
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
-  background-color: #eee4ce;
-  background-image: none;
+  background: #eee4ce;
 }
 
+/* IMPORTANT: keep this at z-index: 0, NOT -1 */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background-image: url("/chanakya-background.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
+  background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.24;
   pointer-events: none;
 }
 
+/* Keep all hero content above the background image */
+.floating-nav,
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 /* NAVIGATION */
 
 .floating-nav {
-  position: relative;
-  z-index: 5;
   width: min(100%, 1000px);
   min-height: 90px;
   display: flex;
@@ -269,7 +275,7 @@ svg {
   line-height: 1.8;
 }
 
-/* REGISTER AND BROCHURE BUTTONS */
+/* BUTTONS */
 
 .hero-actions {
   display: flex;
@@ -301,31 +307,21 @@ svg {
   transform: translateY(-2px);
 }
 
-.register-button {
-  color: #fff;
-  background: var(--green);
-  border-color: var(--green);
-  box-shadow: 0 3px 9px rgba(33, 132, 78, 0.12);
-}
-
-.register-button:hover {
-  color: #fff;
-  background: var(--green-dark);
-  border-color: var(--green-dark);
-}
-
+.register-button,
 .brochure-button {
   color: #fff;
   background: var(--green);
   border-color: var(--green);
 }
 
+.register-button:hover,
 .brochure-button:hover {
   color: #fff;
   background: var(--green-dark);
+  border-color: var(--green-dark);
 }
 
-/* ONLINE LOCATION CARD */
+/* ONLINE CARD */
 
 .location-card {
   width: min(100%, 330px);
@@ -377,9 +373,11 @@ svg {
   color: var(--green);
 }
 
-/* DISCOVER SCROLL CUE */
+/* DISCOVER LINK */
 
 .scroll-cue {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -397,13 +395,8 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(4px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
 }
 
 /* ABOUT SECTION */
@@ -497,7 +490,7 @@ svg {
   margin-top: 32px;
 }
 
-/* FAQ SECTION */
+/* FAQ */
 
 .faq-section {
   padding: 90px 24px;
@@ -1013,7 +1006,7 @@ svg {
   }
 }
 
-/* REDUCED MOTION */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1028,3 +1021,4 @@ svg {
     transition-duration: 0.01ms !important;
   }
   }
+    

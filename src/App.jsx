@@ -24,9 +24,8 @@ function App() {
 
   return (
     <main>
-      {/* HERO / LANDING SECTION */}
+      {/* HERO SECTION */}
       <section className="hero" id="home">
-        {/* FLOATING NAVIGATION */}
         <header className="floating-nav">
           <a
             className="nav-wordmark"
@@ -78,7 +77,7 @@ function App() {
           </nav>
         </header>
 
-        {/* MAIN HERO CONTENT — NO LOGO */}
+        {/* MAIN TITLE — NO LOGO */}
         <div className="hero-content">
           <p className="hero-eyebrow">
             POLICY · DIPLOMACY · LEADERSHIP
@@ -93,7 +92,6 @@ function App() {
           </p>
 
           <div className="hero-date">
-            <CalendarDays size={17} strokeWidth={1.8} />
             <div>
               <span>16th and 17th</span>
               <strong>January 2027</strong>
@@ -210,6 +208,109 @@ function App() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <section className="faq-section" id="faq">
+        <div className="faq-inner">
+          <div className="faq-heading">
+            <p className="section-eyebrow">HAVE QUESTIONS?</p>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <p>
+              Everything you need to know about Chanakya MUN.
+            </p>
+          </div>
+
+          <div className="faq-list">
+            <details className="faq-item">
+              <summary className="faq-question">
+                What is Chanakya MUN?
+              </summary>
+
+              <p className="faq-answer">
+                Chanakya MUN is a Model United Nations conference
+                where participants explore global issues, practise
+                diplomacy, develop public-speaking skills, and
+                engage in thoughtful debate and policy-making.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">
+                Who founded Chanakya MUN?
+              </summary>
+
+              <p className="faq-answer">
+                Chanakya MUN was founded by Shivansh Dixit, a
+                young enthusiast passionate about Model United
+                Nations, diplomacy, and helping young people
+                develop leadership and critical-thinking skills.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">
+                When is Chanakya MUN taking place?
+              </summary>
+
+              <p className="faq-answer">
+                Chanakya MUN is scheduled for 16th and 17th
+                January 2027.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">
+                Where will the conference take place?
+              </summary>
+
+              <p className="faq-answer">
+                The conference will take place online, allowing
+                participants to join from anywhere.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">
+                How can I register?
+              </summary>
+
+              <p className="faq-answer">
+                You can register using our online registration
+                form.{" "}
+                <a
+                  href={REGISTER_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Register here
+                </a>
+                .
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">
+                Where can I find the brochure?
+              </summary>
+
+              <p className="faq-answer">
+                Read the conference brochure for more information
+                about Chanakya MUN.{" "}
+                <a
+                  href={BROCHURE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View the brochure
+                </a>
+                .
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* BROCHURE SECTION */}
       <section className="brochure-section" id="brochure">
         <div className="brochure-inner">
@@ -252,8 +353,8 @@ function App() {
 
         <div className="footer-links">
           <a href="#home">Home</a>
-
           <a href="#about">About</a>
+          <a href="#faq">FAQs</a>
 
           <a
             href={BROCHURE_URL}
@@ -281,4 +382,4 @@ function App() {
 }
 
 export default App;
-          
+              

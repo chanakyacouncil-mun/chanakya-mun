@@ -8,6 +8,8 @@
   --brown: #70563a;
   --gold: #b18a4c;
   --muted: #756b5d;
+  --green: #176b43;
+  --green-hover: #0f5232;
   --border: rgba(112, 86, 58, 0.24);
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'DM Sans', Arial, sans-serif;
@@ -51,7 +53,7 @@ img {
 }
 
 /* =========================
-   NAVIGATION BAR
+   NAVIGATION
 ========================= */
 
 .navbar {
@@ -111,24 +113,36 @@ img {
   color: var(--gold);
 }
 
+/* GREEN REGISTER BUTTON */
+
+.nav-links a.nav-register,
 .nav-links .nav-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 12px 19px;
-  color: var(--cream);
-  background: var(--dark);
-  border: 1px solid var(--dark);
+  color: #ffffff;
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  font-weight: 700;
   transition:
     background 0.2s ease,
-    color 0.2s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
+.nav-links a.nav-register:hover,
 .nav-links .nav-register:hover {
-  color: var(--dark);
-  background: transparent;
+  color: #ffffff;
+  background: var(--green-hover);
+  border-color: var(--green-hover);
+  transform: translateY(-1px);
 }
 
 /* =========================
    HERO SECTION
-   VINTAGE MONUMENT BACKGROUND
 ========================= */
 
 .hero {
@@ -139,22 +153,21 @@ img {
   place-items: center;
   padding: 64px 22px 54px;
   text-align: center;
-
-  /* Your uploaded background image */
   background-image: url("/chanakya-background.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-/* A very light overlay keeps the text readable
-   while preserving the background artwork. */
+/* Higher opacity here means a stronger cream overlay
+   and a fainter monument image. */
+
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(245, 238, 223, 0.12);
+  background: rgba(245, 238, 223, 0.72);
   pointer-events: none;
 }
 
@@ -248,6 +261,7 @@ img {
   gap: 9px;
   padding: 14px 24px;
   border: 1px solid var(--dark);
+  border-radius: 3px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.6px;
@@ -268,6 +282,7 @@ img {
 .btn-primary {
   color: var(--cream);
   background: var(--dark);
+  border-color: var(--dark);
 }
 
 .btn-primary:hover {
@@ -278,6 +293,7 @@ img {
 .btn-outline {
   color: var(--dark);
   background: rgba(245, 238, 223, 0.55);
+  border-color: var(--dark);
 }
 
 .btn-outline:hover {
@@ -285,8 +301,22 @@ img {
   background: var(--dark);
 }
 
+/* GREEN BUTTON IF USED ELSEWHERE */
+
+.btn-register {
+  color: #ffffff;
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.btn-register:hover {
+  color: #ffffff;
+  background: var(--green-hover);
+  border-color: var(--green-hover);
+}
+
 /* =========================
-   GENERAL SECTION STYLING
+   GENERAL SECTIONS
 ========================= */
 
 .section {
@@ -328,7 +358,7 @@ img {
 }
 
 /* =========================
-   ABOUT SECTION
+   ABOUT
 ========================= */
 
 .about-section {
@@ -352,7 +382,7 @@ img {
 }
 
 /* =========================
-   FAQ SECTION
+   FAQ
 ========================= */
 
 .faq-section {
@@ -420,7 +450,7 @@ img {
 }
 
 /* =========================
-   FOUNDER SECTION
+   FOUNDER
 ========================= */
 
 .founder-section {
@@ -542,8 +572,10 @@ img {
     letter-spacing: 0.8px;
   }
 
+  .nav-links a.nav-register,
   .nav-links .nav-register {
     padding: 10px 14px;
+    font-size: 10px;
   }
 
   .hero {
@@ -553,7 +585,7 @@ img {
   }
 
   .hero::before {
-    background: rgba(245, 238, 223, 0.18);
+    background: rgba(245, 238, 223, 0.72);
   }
 
   .eyebrow {
@@ -662,4 +694,4 @@ img {
   .footer-links {
     gap: 16px;
   }
-}
+  }

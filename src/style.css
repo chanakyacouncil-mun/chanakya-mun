@@ -3,7 +3,7 @@
 
 :root {
   --cream: #f3ead7;
-  --paper: #eee2ca;
+  --paper: #eee4ce;
   --dark: #25251f;
   --brown: #66513a;
   --gold: #a9864d;
@@ -51,7 +51,10 @@ svg {
   flex-shrink: 0;
 }
 
-/* HERO BACKGROUND — FULL IMAGE, VERY LOW CREAM OVERLAY */
+/* =========================================
+   HERO BACKGROUND — 24% OPACITY
+   Uses your existing background image.
+   ========================================= */
 
 .hero {
   position: relative;
@@ -62,12 +65,8 @@ svg {
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
-
-  background-color: #e9ddc5;
-  background-image: url("/chanakya-background.png");
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #eee4ce;
+  background-image: none;
 }
 
 .hero::before {
@@ -75,7 +74,11 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(243, 234, 215, 0.02);
+  background-image: url("/chanakya-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.24;
   pointer-events: none;
 }
 
@@ -290,7 +293,8 @@ svg {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .action-button:hover {
@@ -324,7 +328,7 @@ svg {
 /* ONLINE LOCATION CARD */
 
 .location-card {
-  width: min(100%, 270px);
+  width: min(100%, 330px);
   min-height: 88px;
   display: flex;
   align-items: center;
@@ -943,7 +947,7 @@ svg {
   }
 
   .location-card {
-    width: min(100%, 255px);
+    width: min(100%, 300px);
     min-height: 78px;
     gap: 11px;
     margin-top: 14px;
@@ -1024,4 +1028,3 @@ svg {
     transition-duration: 0.01ms !important;
   }
   }
-  

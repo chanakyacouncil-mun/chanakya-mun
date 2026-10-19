@@ -51,7 +51,7 @@ svg {
   flex-shrink: 0;
 }
 
-/* HERO BACKGROUND — MONUMENTS MORE VISIBLE */
+/* HERO BACKGROUND */
 
 .hero {
   position: relative;
@@ -74,12 +74,11 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -1;
-  /* Lower opacity means the original monuments show through */
-  background: rgba(243, 234, 215, 0.22);
+  background: rgba(243, 234, 215, 0.08);
   pointer-events: none;
 }
 
-/* FLOATING NAVIGATION */
+/* NAVIGATION */
 
 .floating-nav {
   position: relative;
@@ -145,14 +144,14 @@ svg {
 
 .nav-links > .nav-register {
   padding: 12px 17px;
-  color: #ffffff;
+  color: #fff;
   background: var(--green);
   border: 1px solid var(--green);
   border-radius: 30px;
 }
 
 .nav-links > .nav-register:hover {
-  color: #ffffff;
+  color: #fff;
   background: var(--green-dark);
   opacity: 1;
 }
@@ -169,7 +168,7 @@ svg {
   cursor: pointer;
 }
 
-/* HERO CONTENT */
+/* HERO TEXT */
 
 .hero-content {
   width: min(100%, 720px);
@@ -266,7 +265,7 @@ svg {
   line-height: 1.8;
 }
 
-/* BUTTONS */
+/* REGISTER AND BROCHURE BUTTONS */
 
 .hero-actions {
   display: flex;
@@ -298,30 +297,30 @@ svg {
 }
 
 .register-button {
-  color: #ffffff;
+  color: #fff;
   background: var(--green);
   border-color: var(--green);
   box-shadow: 0 3px 9px rgba(33, 132, 78, 0.12);
 }
 
 .register-button:hover {
-  color: #ffffff;
+  color: #fff;
   background: var(--green-dark);
   border-color: var(--green-dark);
 }
 
 .brochure-button {
-  color: #ffffff;
+  color: #fff;
   background: var(--green);
   border-color: var(--green);
 }
 
 .brochure-button:hover {
-  color: #ffffff;
+  color: #fff;
   background: var(--green-dark);
 }
 
-/* ONLINE CARD */
+/* ONLINE LOCATION CARD */
 
 .location-card {
   width: min(100%, 270px);
@@ -343,7 +342,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #fff;
   background: var(--green);
   border-radius: 13px;
 }
@@ -373,7 +372,7 @@ svg {
   color: var(--green);
 }
 
-/* SCROLL CUE */
+/* DISCOVER SCROLL CUE */
 
 .scroll-cue {
   display: flex;
@@ -393,11 +392,15 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
 }
 
-/* ABOUT */
+/* ABOUT SECTION */
 
 .about-section {
   padding: 100px 24px;
@@ -488,7 +491,7 @@ svg {
   margin-top: 32px;
 }
 
-/* FAQ */
+/* FAQ SECTION */
 
 .faq-section {
   padding: 90px 24px;
@@ -576,7 +579,7 @@ svg {
   text-underline-offset: 3px;
 }
 
-/* BROCHURE */
+/* BROCHURE SECTION */
 
 .brochure-section {
   padding: 80px 24px;
@@ -597,7 +600,7 @@ svg {
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  color: #ffffff;
+  color: #fff;
   background: #262721;
   border-radius: 50%;
 }
@@ -619,7 +622,7 @@ svg {
 }
 
 .brochure-cta {
-  color: #ffffff;
+  color: #fff;
   background: #262721;
   border-color: #262721;
 }
@@ -687,11 +690,12 @@ svg {
   line-height: 1.8;
 }
 
-/* TABLET AND MOBILE */
+/* TABLET */
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .hero {
-    padding: 20px 17px 40px;
+    background-size: auto 100%;
+    background-position: center center;
   }
 
   .floating-nav {
@@ -832,12 +836,13 @@ svg {
   }
 }
 
-/* SMALL PHONES */
+/* MOBILE */
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .hero {
-    padding-right: 13px;
-    padding-left: 13px;
+    background-size: auto 100%;
+    background-position: center center;
+    padding: 20px 13px 40px;
   }
 
   .floating-nav {
@@ -850,13 +855,55 @@ svg {
     font-size: 23px;
   }
 
+  .nav-wordmark-sub {
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 9px);
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 9px;
+    background: rgba(245, 238, 223, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(40, 32, 20, 0.12);
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-links > a {
+    min-height: 46px;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .nav-links > .nav-register {
+    justify-content: center;
+    margin-top: 5px;
+  }
+
   .hero-eyebrow {
+    margin-bottom: 15px;
     font-size: 8px;
     letter-spacing: 1.7px;
   }
 
   .hero-title {
     font-size: clamp(48px, 14vw, 64px);
+    letter-spacing: 1px;
   }
 
   .hero-hindi-title {
@@ -865,6 +912,10 @@ svg {
 
   .hero-subtitle {
     font-size: 16px;
+  }
+
+  .hero-date {
+    margin-top: 21px;
   }
 
   .hero-date span,
@@ -887,16 +938,20 @@ svg {
 
   .hero-actions {
     gap: 9px;
+    margin-top: 22px;
   }
 
   .action-button {
+    min-height: 43px;
     padding: 11px 15px;
     font-size: 12px;
   }
 
   .location-card {
     width: min(100%, 255px);
+    min-height: 78px;
     gap: 11px;
+    margin-top: 14px;
     padding: 12px;
   }
 
@@ -911,6 +966,10 @@ svg {
 
   .location-globe {
     width: 20px;
+  }
+
+  .scroll-cue {
+    margin-top: 20px;
   }
 
   .about-section {
@@ -934,6 +993,18 @@ svg {
     min-width: 0;
   }
 
+  .faq-section {
+    padding: 60px 19px;
+  }
+
+  .faq-question {
+    font-size: 21px;
+  }
+
+  .faq-answer {
+    font-size: 13px;
+  }
+
   .brochure-section {
     padding: 58px 19px;
   }
@@ -943,7 +1014,7 @@ svg {
   }
 }
 
-/* REDUCED MOTION */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -957,5 +1028,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  }
-  
+                  }
+    

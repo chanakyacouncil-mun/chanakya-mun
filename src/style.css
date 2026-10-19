@@ -51,7 +51,7 @@ svg {
   flex-shrink: 0;
 }
 
-/* HERO BACKGROUND */
+/* HERO BACKGROUND — MONUMENTS MORE VISIBLE */
 
 .hero {
   position: relative;
@@ -62,6 +62,7 @@ svg {
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
+  background-color: #e9ddc5;
   background-image: url("/chanakya-background.png");
   background-size: cover;
   background-position: center center;
@@ -73,7 +74,8 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(243, 234, 215, 0.72);
+  /* Lower opacity means the original monuments show through */
+  background: rgba(243, 234, 215, 0.22);
   pointer-events: none;
 }
 
@@ -288,11 +290,7 @@ svg {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .action-button:hover {
@@ -395,13 +393,8 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(4px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
 }
 
 /* ABOUT */
@@ -965,3 +958,4 @@ svg {
     transition-duration: 0.01ms !important;
   }
   }
+  

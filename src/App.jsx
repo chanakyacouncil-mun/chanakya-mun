@@ -11,7 +11,7 @@ const BROCHURE_URL =
   "https://drive.google.com/file/d/1ChDsQg5mgs1BUsv8aG48RJZXtixpHa05/view";
 
 const REGISTER_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeHp8VdJ5KmRHe-iog6ss5duwlU9GV-p1h1y-eOZM6_35EVeQ/viewform";
+  "https://champarena.co.in/e/the-chanakya-council-mun";
 
 const faqs = [
   {

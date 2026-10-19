@@ -51,7 +51,7 @@ svg {
   flex-shrink: 0;
 }
 
-/* HERO BACKGROUND */
+/* HERO BACKGROUND — FULL IMAGE, VERY LOW CREAM OVERLAY */
 
 .hero {
   position: relative;
@@ -62,10 +62,11 @@ svg {
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
+
   background-color: #e9ddc5;
   background-image: url("/chanakya-background.png");
-  background-size: cover;
-  background-position: center center;
+  background-size: 100% 100%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -74,7 +75,7 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(243, 234, 215, 0.08);
+  background: rgba(243, 234, 215, 0.02);
   pointer-events: none;
 }
 
@@ -395,6 +396,7 @@ svg {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(4px);
   }
@@ -693,11 +695,6 @@ svg {
 /* TABLET */
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .hero {
-    background-size: auto 100%;
-    background-position: center center;
-  }
-
   .floating-nav {
     min-height: 78px;
     margin-bottom: 27px;
@@ -840,8 +837,6 @@ svg {
 
 @media (max-width: 480px) {
   .hero {
-    background-size: auto 100%;
-    background-position: center center;
     padding: 20px 13px 40px;
   }
 
@@ -1014,7 +1009,7 @@ svg {
   }
 }
 
-/* ACCESSIBILITY */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1028,5 +1023,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-                  }
-    
+  }
+  

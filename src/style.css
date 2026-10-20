@@ -52,40 +52,42 @@ svg {
 }
 
 /* ==========================================
-   HERO AND BACKGROUND
-   The background sits ABOVE the cream base
-   but BELOW every piece of content.
+   HERO AND RESPONSIVE BACKGROUND
    ========================================== */
 
 .hero {
   position: relative;
   isolation: isolate;
+  min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px 22px 48px;
   overflow: hidden;
-  background: #eee4ce;
+  background: var(--paper);
 }
 
-/* IMPORTANT: keep this at z-index: 0, NOT -1 */
+/* Background only: never fade the text or buttons */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
+
   background-image: url("/chanakya-background.jpg");
-  background-size: 100% 100%;
-  background-position: center center;
   background-repeat: no-repeat;
-  opacity: 0.24;
+  background-position: center top;
+  background-size: cover;
+
+  opacity: 0.30;
   pointer-events: none;
 }
 
-/* Keep all hero content above the background image */
+/* Keep content crisp above the background */
 .floating-nav,
-.hero-content {
+.hero-content,
+.scroll-cue {
   position: relative;
   z-index: 1;
 }
@@ -206,6 +208,7 @@ svg {
   font-weight: 700;
   letter-spacing: 2px;
   line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .hero-hindi-title {
@@ -376,8 +379,6 @@ svg {
 /* DISCOVER LINK */
 
 .scroll-cue {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -692,6 +693,16 @@ svg {
 /* TABLET */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .hero {
+    padding: 20px 18px 42px;
+  }
+
+  .hero::before {
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.30;
+  }
+
   .floating-nav {
     min-height: 78px;
     margin-bottom: 27px;
@@ -835,6 +846,12 @@ svg {
 @media (max-width: 480px) {
   .hero {
     padding: 20px 13px 40px;
+  }
+
+  .hero::before {
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.26;
   }
 
   .floating-nav {
@@ -1020,5 +1037,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  }
-    
+    }
+  

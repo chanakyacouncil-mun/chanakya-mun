@@ -77,7 +77,7 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("/chanakya-background.png");
+  background-image: url("/chanakya-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

@@ -51,9 +51,9 @@ svg {
   flex-shrink: 0;
 }
 
-/* ==========================================
-   HERO AND BACKGROUND
-   ========================================== */
+/* HERO BACKGROUND
+   Keep the complete monument image visible.
+   The image must be in the public folder. */
 
 .hero {
   position: relative;
@@ -65,22 +65,9 @@ svg {
   align-items: center;
   padding: 24px 22px 38px;
   overflow: hidden;
-  background-color: var(--paper);
+  background-color: #eee4ce;
 }
 
-/*
-  Background image is a separate layer.
-  Its opacity does not affect text or buttons.
-
-  Desktop/tablet: cover fills the entire hero without
-  stretching the image, but may crop its edges.
-
-  Mobile: auto 100% preserves image proportions and
-  shows the full image height, with side space if needed.
-
-  IMPORTANT:
-  Put chanakya-background.jpg inside the public folder.
-*/
 .hero::before {
   content: "";
   position: absolute;
@@ -89,12 +76,11 @@ svg {
   background-image: url("/chanakya-background.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
-  opacity: 0.48;
+  background-size: contain;
+  opacity: 0.35;
   pointer-events: none;
 }
 
-/* A very subtle wash keeps the background soft. */
 .hero::after {
   content: "";
   position: absolute;
@@ -104,7 +90,6 @@ svg {
   pointer-events: none;
 }
 
-/* Keep content above the background. */
 .floating-nav,
 .hero-content,
 .scroll-cue {
@@ -112,9 +97,7 @@ svg {
   z-index: 1;
 }
 
-/* ==========================================
-   NAVIGATION
-   ========================================== */
+/* NAVIGATION */
 
 .floating-nav {
   position: relative;
@@ -203,9 +186,7 @@ svg {
   cursor: pointer;
 }
 
-/* ==========================================
-   HERO TEXT
-   ========================================== */
+/* HERO CONTENT */
 
 .hero-content {
   width: min(100%, 720px);
@@ -302,9 +283,7 @@ svg {
   line-height: 1.8;
 }
 
-/* ==========================================
-   BUTTONS
-   ========================================== */
+/* BUTTONS */
 
 .hero-actions {
   display: flex;
@@ -352,9 +331,7 @@ svg {
   border-color: var(--green-dark);
 }
 
-/* ==========================================
-   ONLINE LOCATION CARD
-   ========================================== */
+/* LOCATION CARD */
 
 .location-card {
   width: min(100%, 330px);
@@ -406,9 +383,7 @@ svg {
   color: var(--green);
 }
 
-/* ==========================================
-   DISCOVER LINK
-   ========================================== */
+/* SCROLL LINK */
 
 .scroll-cue {
   display: flex;
@@ -437,9 +412,7 @@ svg {
   }
 }
 
-/* ==========================================
-   ABOUT SECTION
-   ========================================== */
+/* ABOUT */
 
 .about-section {
   padding: 100px 24px;
@@ -530,9 +503,7 @@ svg {
   margin-top: 32px;
 }
 
-/* ==========================================
-   FAQ SECTION
-   ========================================== */
+/* FAQ */
 
 .faq-section {
   padding: 90px 24px;
@@ -620,9 +591,7 @@ svg {
   text-underline-offset: 3px;
 }
 
-/* ==========================================
-   BROCHURE SECTION
-   ========================================== */
+/* BROCHURE */
 
 .brochure-section {
   padding: 80px 24px;
@@ -675,9 +644,7 @@ svg {
   background: transparent;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+/* FOOTER */
 
 .site-footer {
   padding: 45px 24px 28px;
@@ -735,19 +702,11 @@ svg {
   line-height: 1.8;
 }
 
-/* ==========================================
-   TABLET
-   ========================================== */
+/* TABLET */
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero {
     padding: 20px 18px 35px;
-  }
-
-  .hero::before {
-    background-size: cover;
-    background-position: center center;
-    opacity: 0.48;
   }
 
   .floating-nav {
@@ -888,24 +847,11 @@ svg {
   }
 }
 
-/* ==========================================
-   MOBILE
-   ========================================== */
+/* MOBILE */
 
 @media (max-width: 480px) {
   .hero {
     padding: 20px 13px 35px;
-  }
-
-  .hero::before {
-    /*
-      Preserve the image proportions on phones.
-      The image height fits the hero, and the sides
-      may have empty space instead of stretching.
-    */
-    background-size: auto 100%;
-    background-position: center center;
-    opacity: 0.48;
   }
 
   .floating-nav {
@@ -1077,9 +1023,7 @@ svg {
   }
 }
 
-/* ==========================================
-   ACCESSIBILITY
-   ========================================== */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1093,5 +1037,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-   }
-             
+  }
+  

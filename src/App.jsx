@@ -9,6 +9,9 @@ import {
   CalendarDays,
   Globe,
   ChevronDown,
+  Leaf,
+  Scissors,
+  Quote,
 } from "lucide-react";
 
 const REGISTER_URL =
@@ -16,6 +19,9 @@ const REGISTER_URL =
 
 const BROCHURE_URL =
   "https://drive.google.com/file/d/1ChDsQg5mgs1BUsv8aG48RJZXtixpHa05/view";
+
+const ABOUT_IMAGE =
+  "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,13 +53,8 @@ function App() {
           </button>
 
           <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
-            <a href="#home" onClick={closeMenu}>
-              Home
-            </a>
-
-            <a href="#about" onClick={closeMenu}>
-              About
-            </a>
+            <a href="#home" onClick={closeMenu}>Home</a>
+            <a href="#about" onClick={closeMenu}>About</a>
 
             <a
               href={BROCHURE_URL}
@@ -77,19 +78,14 @@ function App() {
           </nav>
         </header>
 
-        {/* MAIN TITLE — NO LOGO */}
         <div className="hero-content">
           <p className="hero-eyebrow">
             POLICY · DIPLOMACY · LEADERSHIP
           </p>
 
           <h1 className="hero-title">CHANAKYA</h1>
-
           <p className="hero-hindi-title">चाणक्य MUN</p>
-
-          <p className="hero-subtitle">
-            Model United Nation
-          </p>
+          <p className="hero-subtitle">Model United Nations</p>
 
           <div className="hero-date">
             <div>
@@ -108,7 +104,6 @@ function App() {
             Leadership through policy, victory through reasoning
           </p>
 
-          {/* ACTION BUTTONS */}
           <div className="hero-actions">
             <a
               className="action-button register-button"
@@ -116,8 +111,7 @@ function App() {
               target="_blank"
               rel="noreferrer"
             >
-              Register
-              <ArrowUpRight size={17} />
+              Register <ArrowUpRight size={17} />
             </a>
 
             <a
@@ -131,7 +125,6 @@ function App() {
             </a>
           </div>
 
-          {/* ONLINE LOCATION CARD */}
           <div className="location-card">
             <div className="location-icon">
               <MapPin size={24} strokeWidth={1.9} />
@@ -152,59 +145,121 @@ function App() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
+      {/* ABOUT CHANAKYA MUN — REPLACEMENT SECTION */}
       <section className="about-section" id="about">
-        <div className="about-inner">
-          <p className="section-eyebrow">THE CHANAKYA COUNCIL</p>
+        <div className="about-layout">
+          <div className="about-visual">
+            <img
+              className="about-photo"
+              src={ABOUT_IMAGE}
+              alt="People working together and exchanging ideas"
+              loading="lazy"
+            />
 
-          <h2 className="about-title">
-            Ideas into policy.
-            <br />
-            Voices into change.
-          </h2>
+            <div className="about-quote-card">
+              <div className="quote-mark">
+                <Quote size={28} />
+              </div>
 
-          <div className="section-divider" />
+              <blockquote>
+                “Great leaders are not born with answers;
+                they are shaped by the courage to ask better questions.”
+              </blockquote>
 
-          <p className="about-description">
-            Chanakya MUN is a platform for aspiring diplomats,
-            thoughtful debaters, and future leaders to engage
-            with global issues, develop informed perspectives,
-            and experience the art of diplomacy.
-          </p>
-
-          <p className="about-description">
-            Guided by the spirit of strategic thinking and
-            reasoned debate, we aim to cultivate leadership
-            through policy and victory through reasoning.
-          </p>
-
-          <div className="about-details">
-            <div className="detail-item">
-              <CalendarDays size={22} />
-              <div>
-                <span>CONFERENCE DATES</span>
-                <strong>16–17 January 2027</strong>
+              <div className="quote-credit">
+                <span />
+                THE SPIRIT OF CHANAKYA MUN
               </div>
             </div>
 
-            <div className="detail-item">
-              <Globe size={22} />
-              <div>
-                <span>CONFERENCE MODE</span>
-                <strong>Online</strong>
-              </div>
+            <div className="about-image-label">
+              <Leaf size={15} />
+              THINK. DEBATE. LEAD.
             </div>
           </div>
 
-          <a
-            className="action-button register-button about-register"
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Register for Chanakya MUN
-            <ArrowUpRight size={17} />
-          </a>
+          <div className="about-copy">
+            <p className="section-eyebrow">
+              THE CHANAKYA COUNCIL
+            </p>
+
+            <h2 className="about-title">
+              About
+              <br />
+              <span>Chanakya MUN</span>
+            </h2>
+
+            <div className="section-divider about-divider" />
+
+            <p className="about-lead">
+              Where young minds meet the world's most pressing
+              questions.
+            </p>
+
+            <p className="about-description">
+              Chanakya MUN is a platform for aspiring diplomats,
+              thoughtful debaters, and future leaders to explore
+              global issues, challenge perspectives, and discover
+              the power of informed dialogue.
+            </p>
+
+            <p className="about-description">
+              Inspired by the strategic wisdom of Chanakya, we
+              believe that leadership begins with knowledge,
+              progress begins with discussion, and meaningful
+              change begins with the courage to think differently.
+            </p>
+
+            <div className="about-principles">
+              <div className="principle-item">
+                <div className="principle-icon">
+                  <Leaf size={19} />
+                </div>
+                <div>
+                  <strong>Think beyond boundaries</strong>
+                  <span>Explore issues with curiosity and perspective.</span>
+                </div>
+              </div>
+
+              <div className="principle-item">
+                <div className="principle-icon">
+                  <Scissors size={19} />
+                </div>
+                <div>
+                  <strong>Debate with purpose</strong>
+                  <span>Turn arguments into dialogue and ideas into policy.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="about-details">
+              <div className="detail-item">
+                <CalendarDays size={22} />
+                <div>
+                  <span>CONFERENCE DATES</span>
+                  <strong>16–17 January 2027</strong>
+                </div>
+              </div>
+
+              <div className="detail-item">
+                <Globe size={22} />
+                <div>
+                  <span>CONFERENCE MODE</span>
+                  <strong>Online</strong>
+                </div>
+              </div>
+            </div>
+
+            <a
+              className="action-button register-button about-register"
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Join Chanakya MUN
+              <ArrowUpRight size={17} />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -213,12 +268,8 @@ function App() {
         <div className="faq-inner">
           <div className="faq-heading">
             <p className="section-eyebrow">HAVE QUESTIONS?</p>
-
             <h2>Frequently Asked Questions</h2>
-
-            <p>
-              Everything you need to know about Chanakya MUN.
-            </p>
+            <p>Everything you need to know about Chanakya MUN.</p>
           </div>
 
           <div className="faq-list">
@@ -226,7 +277,6 @@ function App() {
               <summary className="faq-question">
                 What is Chanakya MUN?
               </summary>
-
               <p className="faq-answer">
                 Chanakya MUN is a Model United Nations conference
                 where participants explore global issues, practise
@@ -239,7 +289,6 @@ function App() {
               <summary className="faq-question">
                 Who founded Chanakya MUN?
               </summary>
-
               <p className="faq-answer">
                 Chanakya MUN was founded by Shivansh Dixit, a
                 young enthusiast passionate about Model United
@@ -252,7 +301,6 @@ function App() {
               <summary className="faq-question">
                 When is Chanakya MUN taking place?
               </summary>
-
               <p className="faq-answer">
                 Chanakya MUN is scheduled for 16th and 17th
                 January 2027.
@@ -263,7 +311,6 @@ function App() {
               <summary className="faq-question">
                 Where will the conference take place?
               </summary>
-
               <p className="faq-answer">
                 The conference will take place online, allowing
                 participants to join from anywhere.
@@ -274,18 +321,11 @@ function App() {
               <summary className="faq-question">
                 How can I register?
               </summary>
-
               <p className="faq-answer">
-                You can register using our online registration
-                form.{" "}
-                <a
-                  href={REGISTER_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                You can register using our online registration form.{" "}
+                <a href={REGISTER_URL} target="_blank" rel="noreferrer">
                   Register here
-                </a>
-                .
+                </a>.
               </p>
             </details>
 
@@ -293,18 +333,12 @@ function App() {
               <summary className="faq-question">
                 Where can I find the brochure?
               </summary>
-
               <p className="faq-answer">
                 Read the conference brochure for more information
                 about Chanakya MUN.{" "}
-                <a
-                  href={BROCHURE_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={BROCHURE_URL} target="_blank" rel="noreferrer">
                   View the brochure
-                </a>
-                .
+                </a>.
               </p>
             </details>
           </div>
@@ -319,7 +353,6 @@ function App() {
           </div>
 
           <p className="section-eyebrow">YOUR NEXT STEP</p>
-
           <h2>Explore the Brochure</h2>
 
           <p>
@@ -333,42 +366,25 @@ function App() {
             target="_blank"
             rel="noreferrer"
           >
-            View Brochure
-            <ArrowUpRight size={17} />
+            View Brochure <ArrowUpRight size={17} />
           </a>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="site-footer">
-        <a className="footer-brand" href="#home">
-          CHANAKYA
-        </a>
-
+        <a className="footer-brand" href="#home">CHANAKYA</a>
         <p className="footer-hindi">चाणक्य MUN</p>
-
-        <p className="footer-tagline">
-          नीति से नेतृत्व, तर्क से विजय
-        </p>
+        <p className="footer-tagline">नीति से नेतृत्व, तर्क से विजय</p>
 
         <div className="footer-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#faq">FAQs</a>
-
-          <a
-            href={BROCHURE_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={BROCHURE_URL} target="_blank" rel="noreferrer">
             Brochure
           </a>
-
-          <a
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={REGISTER_URL} target="_blank" rel="noreferrer">
             Register
           </a>
         </div>
@@ -382,4 +398,3 @@ function App() {
 }
 
 export default App;
-              

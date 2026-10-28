@@ -1,10 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
 
-/* ==========================================
-   CHANAKYA MUN — COMPLETE STYLESHEET
-   ========================================== */
-
 :root {
   --cream: #f3ead7;
   --paper: #eee4ce;
@@ -44,9 +40,9 @@ a {
 
 button {
   font: inherit;
-  -webkit-tap-highlight-color: transparent;
 }
 
+button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
@@ -56,7 +52,7 @@ svg {
 }
 
 /* ==========================================
-   HERO — FULL BACKGROUND
+   HERO AND BACKGROUND
    ========================================== */
 
 .hero {
@@ -67,43 +63,48 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 22px 48px;
+  padding: 24px 22px 38px;
   overflow: hidden;
-  background-color: #eee4ce;
+  background-color: var(--paper);
 }
 
 /*
-  Keep the complete original image visible on
-  narrow screens without stretching it.
+  Background image is a separate layer.
+  Its opacity does not affect text or buttons.
+
+  Desktop/tablet: cover fills the entire hero without
+  stretching the image, but may crop its edges.
+
+  Mobile: auto 100% preserves image proportions and
+  shows the full image height, with side space if needed.
 
   IMPORTANT:
-  Put chanakya-background.jpg in the public
-  folder so the URL below resolves correctly.
-
-  The image layer has its own opacity, so the
-  text, buttons and navigation stay unaffected.
+  Put chanakya-background.jpg inside the public folder.
 */
-
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
-
+  z-index: -2;
   background-image: url("/chanakya-background.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-
-  /* Desktop: fill the hero naturally */
   background-size: cover;
-
-  /* Soft, faded vintage background */
-  opacity: 0.52;
+  opacity: 0.48;
   pointer-events: none;
 }
 
-/* Keep all foreground content visible */
+/* A very subtle wash keeps the background soft. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(243, 234, 215, 0.08);
+  pointer-events: none;
+}
 
+/* Keep content above the background. */
 .floating-nav,
 .hero-content,
 .scroll-cue {
@@ -123,16 +124,14 @@ svg {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  margin: 0 auto 34px;
+  margin: 0 auto 24px;
   padding: 16px 25px;
-
-  background: rgba(239, 228, 207, 0.82);
+  background: rgba(239, 228, 207, 0.74);
   border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 19px;
   box-shadow: 0 8px 28px rgba(69, 52, 29, 0.035);
-
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .nav-wordmark {
@@ -205,7 +204,7 @@ svg {
 }
 
 /* ==========================================
-   HERO CONTENT
+   HERO TEXT
    ========================================== */
 
 .hero-content {
@@ -354,7 +353,7 @@ svg {
 }
 
 /* ==========================================
-   LOCATION CARD
+   ONLINE LOCATION CARD
    ========================================== */
 
 .location-card {
@@ -377,7 +376,6 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   color: #fff;
   background: var(--green);
   border-radius: 13px;
@@ -409,7 +407,7 @@ svg {
 }
 
 /* ==========================================
-   SCROLL CUE
+   DISCOVER LINK
    ========================================== */
 
 .scroll-cue {
@@ -417,7 +415,7 @@ svg {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  margin-top: 25px;
+  margin-top: 22px;
   color: #5f584b;
   font-size: 10px;
   font-weight: 600;
@@ -445,11 +443,7 @@ svg {
 
 .about-section {
   padding: 100px 24px;
-  background: linear-gradient(
-    180deg,
-    #e4e9d7 0%,
-    #f0ead9 100%
-  );
+  background: linear-gradient(180deg, #e4e9d7 0%, #f0ead9 100%);
   border-top: 1px solid rgba(95, 113, 73, 0.12);
 }
 
@@ -747,24 +741,18 @@ svg {
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero {
-    padding: 20px 18px 40px;
+    padding: 20px 18px 35px;
   }
 
-  /*
-    Preserve the image proportions on tablet.
-    The paper background blends with the image
-    if a small amount of space remains.
-  */
-
   .hero::before {
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
-    opacity: 0.52;
+    opacity: 0.48;
   }
 
   .floating-nav {
     min-height: 78px;
-    margin-bottom: 27px;
+    margin-bottom: 22px;
     padding: 13px 17px;
     border-radius: 17px;
   }
@@ -872,7 +860,7 @@ svg {
   }
 
   .scroll-cue {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
   .about-section {
@@ -906,22 +894,18 @@ svg {
 
 @media (max-width: 480px) {
   .hero {
-    padding: 20px 13px 40px;
+    padding: 20px 13px 35px;
   }
 
-  /*
-    Mobile background:
-    - contain prevents cropping of the original
-      image and avoids stretching it.
-    - center keeps the monuments balanced.
-    - matching paper color helps fill any space.
-  */
-
   .hero::before {
-    background-size: contain;
+    /*
+      Preserve the image proportions on phones.
+      The image height fits the hero, and the sides
+      may have empty space instead of stretching.
+    */
+    background-size: auto 100%;
     background-position: center center;
-    background-repeat: no-repeat;
-    opacity: 0.52;
+    opacity: 0.48;
   }
 
   .floating-nav {
@@ -972,10 +956,6 @@ svg {
   .nav-links > .nav-register {
     justify-content: center;
     margin-top: 5px;
-  }
-
-  .hero-content {
-    width: 100%;
   }
 
   .hero-eyebrow {
@@ -1052,7 +1032,7 @@ svg {
   }
 
   .scroll-cue {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
   .about-section {
@@ -1113,5 +1093,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-     }
-   
+   }
+             

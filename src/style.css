@@ -47,7 +47,7 @@ svg {
 }
 
 /* =========================================
-   HERO AND MONUMENT BACKGROUND
+   FULL-SCREEN HERO
    ========================================= */
 
 .hero {
@@ -60,10 +60,18 @@ svg {
   align-items: center;
   padding: 24px 22px 38px;
   overflow: hidden;
-  background-color: #f0e5cc;
+  background-color: #eee4ce;
 }
 
-/* Background image */
+/*
+  MONUMENT BACKGROUND
+
+  Image: public/chanakya-background.jpeg
+  Opacity: EXACTLY 30%
+
+  The complete image is fitted to the hero
+  area so its monuments are not cropped.
+*/
 
 .hero::before {
   content: "";
@@ -73,25 +81,21 @@ svg {
 
   background-image: url("/chanakya-background.jpeg");
   background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 85% auto;
+  background-position: center center;
+  background-size: 100% 100%;
 
-  /* The source image already has a faded appearance. */
   opacity: 0.3;
-
   pointer-events: none;
 }
 
-/* Soft cream finish */
+/* TRANSPARENT OVERLAY */
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-
-  background: rgba(243, 234, 215, 0.12);
-
+  background: transparent;
   pointer-events: none;
 }
 
@@ -223,6 +227,7 @@ svg {
   font-weight: 700;
   letter-spacing: 2px;
   line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .hero-hindi-title {
@@ -418,7 +423,8 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -738,6 +744,12 @@ svg {
     padding: 20px 18px 35px;
   }
 
+  .hero::before {
+    background-size: 100% 100%;
+    background-position: center center;
+    opacity: 0.3;
+  }
+
   .floating-nav {
     min-height: 78px;
     margin-bottom: 22px;
@@ -886,13 +898,9 @@ svg {
   }
 
   .hero::before {
-    background-size: 100% auto;
-    background-position: center bottom;
-    opacity: 0.9;
-  }
-
-  .hero::after {
-    background: rgba(243, 234, 215, 0.1);
+    background-size: 100% 100%;
+    background-position: center center;
+    opacity: 0.3;
   }
 
   .floating-nav {
@@ -943,6 +951,10 @@ svg {
   .nav-links > .nav-register {
     justify-content: center;
     margin-top: 5px;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .hero-eyebrow {
@@ -1065,6 +1077,40 @@ svg {
 }
 
 /* =========================================
+   SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 360px) {
+  .hero {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .hero-title {
+    font-size: clamp(43px, 13vw, 50px);
+  }
+
+  .hero-date span,
+  .hero-date strong {
+    font-size: 24px;
+  }
+
+  .hero-actions {
+    gap: 7px;
+  }
+
+  .action-button {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .floating-nav {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+}
+
+/* =========================================
    ACCESSIBILITY
    ========================================= */
 
@@ -1081,4 +1127,3 @@ svg {
     transition-duration: 0.01ms !important;
   }
 }
-  

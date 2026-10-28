@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
 
 :root {
@@ -68,10 +69,16 @@ svg {
 }
 
 /*
-  Background is a separate layer.
-  Opacity affects only the image, not the text.
-  The image keeps its original proportions.
+  NEW BACKGROUND IMAGE
+
+  Replace public/chanakya-background.jpg with your
+  newly uploaded monument image.
+
+  100% opacity removes additional CSS fading.
+  100% 100% fits the entire image inside the hero.
+  All monuments remain visible without cropping.
 */
+
 .hero::before {
   content: "";
   position: absolute;
@@ -79,13 +86,14 @@ svg {
   z-index: -1;
   background-image: url("/chanakya-background.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center center;
-  opacity: 0.60;
+  opacity: 1;
   pointer-events: none;
 }
 
 /* Keep content above the background */
+
 .floating-nav,
 .hero-content,
 .scroll-cue {
@@ -398,8 +406,13 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 /* ABOUT SECTION */
@@ -700,9 +713,9 @@ svg {
   }
 
   .hero::before {
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center center;
-    opacity: 0.65;
+    opacity: 1;
   }
 
   .floating-nav {
@@ -851,14 +864,9 @@ svg {
   }
 
   .hero::before {
-    /*
-      Fill the mobile hero vertically while preserving
-      the image's proportions. Some horizontal cropping
-      may occur, but the image will not be squashed.
-    */
-    background-size: auto 100%;
+    background-size: 100% 100%;
     background-position: center center;
-    opacity: 0.65;
+    opacity: 1;
   }
 
   .floating-nav {
@@ -1044,4 +1052,5 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  }
+    }
+  

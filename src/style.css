@@ -74,10 +74,10 @@ svg {
   background-image: url("/chanakya-background.jpeg");
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 100% auto;
+  background-size: 85% auto;
 
   /* The source image already has a faded appearance. */
-  opacity: 0.88;
+  opacity: 0.3;
 
   pointer-events: none;
 }

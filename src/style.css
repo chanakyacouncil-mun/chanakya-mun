@@ -40,10 +40,6 @@ a {
 
 button {
   font: inherit;
-}
-
-button,
-a {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -51,9 +47,7 @@ svg {
   flex-shrink: 0;
 }
 
-/* HERO BACKGROUND
-   Keep the complete monument image visible.
-   The image must be in the public folder. */
+/* FULL-SCREEN HERO */
 
 .hero {
   position: relative;
@@ -76,7 +70,7 @@ svg {
   background-image: url("/chanakya-background.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   opacity: 0.35;
   pointer-events: none;
 }
@@ -307,10 +301,7 @@ svg {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .action-button:hover {
@@ -403,13 +394,8 @@ svg {
 }
 
 @keyframes gentle-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(4px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
 }
 
 /* ABOUT */
@@ -716,17 +702,10 @@ svg {
     border-radius: 17px;
   }
 
-  .nav-wordmark-main {
-    font-size: 25px;
-  }
+  .nav-wordmark-main { font-size: 25px; }
+  .nav-wordmark-sub { font-size: 12px; }
 
-  .nav-wordmark-sub {
-    font-size: 12px;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
+  .menu-toggle { display: flex; }
 
   .nav-links {
     position: absolute;
@@ -744,9 +723,7 @@ svg {
     box-shadow: 0 12px 30px rgba(40, 32, 20, 0.12);
   }
 
-  .nav-links.nav-open {
-    display: flex;
-  }
+  .nav-links.nav-open { display: flex; }
 
   .nav-links > a {
     min-height: 46px;
@@ -760,9 +737,7 @@ svg {
     margin-top: 5px;
   }
 
-  .hero-content {
-    width: 100%;
-  }
+  .hero-content { width: 100%; }
 
   .hero-eyebrow {
     margin-bottom: 15px;
@@ -775,26 +750,16 @@ svg {
     letter-spacing: 1px;
   }
 
-  .hero-hindi-title {
-    font-size: clamp(27px, 5.5vw, 38px);
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-  }
-
-  .hero-date {
-    margin-top: 21px;
-  }
+  .hero-hindi-title { font-size: clamp(27px, 5.5vw, 38px); }
+  .hero-subtitle { font-size: 18px; }
+  .hero-date { margin-top: 21px; }
 
   .hero-date span,
   .hero-date strong {
     font-size: clamp(25px, 5vw, 33px);
   }
 
-  .hero-slogan {
-    font-size: clamp(19px, 4vw, 26px);
-  }
+  .hero-slogan { font-size: clamp(19px, 4vw, 26px); }
 
   .hero-english-slogan {
     max-width: 340px;
@@ -818,33 +783,13 @@ svg {
     border-radius: 20px;
   }
 
-  .scroll-cue {
-    margin-top: 18px;
-  }
-
-  .about-section {
-    padding: 75px 22px;
-  }
-
-  .faq-section {
-    padding: 65px 20px;
-  }
-
-  .faq-heading {
-    margin-bottom: 28px;
-  }
-
-  .faq-question {
-    font-size: 21px;
-  }
-
-  .faq-answer {
-    font-size: 13px;
-  }
-
-  .brochure-section {
-    padding: 65px 22px;
-  }
+  .scroll-cue { margin-top: 18px; }
+  .about-section { padding: 75px 22px; }
+  .faq-section { padding: 65px 20px; }
+  .faq-heading { margin-bottom: 28px; }
+  .faq-question { font-size: 21px; }
+  .faq-answer { font-size: 13px; }
+  .brochure-section { padding: 65px 22px; }
 }
 
 /* MOBILE */
@@ -860,17 +805,10 @@ svg {
     padding: 11px 14px;
   }
 
-  .nav-wordmark-main {
-    font-size: 23px;
-  }
+  .nav-wordmark-main { font-size: 23px; }
+  .nav-wordmark-sub { font-size: 12px; }
 
-  .nav-wordmark-sub {
-    font-size: 12px;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
+  .menu-toggle { display: flex; }
 
   .nav-links {
     position: absolute;
@@ -888,9 +826,7 @@ svg {
     box-shadow: 0 12px 30px rgba(40, 32, 20, 0.12);
   }
 
-  .nav-links.nav-open {
-    display: flex;
-  }
+  .nav-links.nav-open { display: flex; }
 
   .nav-links > a {
     min-height: 46px;
@@ -915,30 +851,17 @@ svg {
     letter-spacing: 1px;
   }
 
-  .hero-hindi-title {
-    font-size: 28px;
-  }
-
-  .hero-subtitle {
-    font-size: 16px;
-  }
-
-  .hero-date {
-    margin-top: 21px;
-  }
+  .hero-hindi-title { font-size: 28px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-date { margin-top: 21px; }
 
   .hero-date span,
   .hero-date strong {
     font-size: 27px;
   }
 
-  .hero-divider {
-    margin: 18px auto 13px;
-  }
-
-  .hero-slogan {
-    font-size: 20px;
-  }
+  .hero-divider { margin: 18px auto 13px; }
+  .hero-slogan { font-size: 20px; }
 
   .hero-english-slogan {
     max-width: 300px;
@@ -969,66 +892,31 @@ svg {
     height: 43px;
   }
 
-  .location-text strong {
-    font-size: 14px;
-  }
+  .location-text strong { font-size: 14px; }
+  .location-globe { width: 20px; }
+  .scroll-cue { margin-top: 18px; }
+  .about-section { padding: 65px 19px; }
+  .about-title { font-size: 43px; }
+  .about-description { font-size: 13px; }
 
-  .location-globe {
-    width: 20px;
-  }
-
-  .scroll-cue {
-    margin-top: 18px;
-  }
-
-  .about-section {
-    padding: 65px 19px;
-  }
-
-  .about-title {
-    font-size: 43px;
-  }
-
-  .about-description {
-    font-size: 13px;
-  }
-
-  .about-details {
-    gap: 12px;
-  }
+  .about-details { gap: 12px; }
 
   .detail-item {
     width: 100%;
     min-width: 0;
   }
 
-  .faq-section {
-    padding: 60px 19px;
-  }
-
-  .faq-question {
-    font-size: 21px;
-  }
-
-  .faq-answer {
-    font-size: 13px;
-  }
-
-  .brochure-section {
-    padding: 58px 19px;
-  }
-
-  .footer-links {
-    gap: 17px;
-  }
+  .faq-section { padding: 60px 19px; }
+  .faq-question { font-size: 21px; }
+  .faq-answer { font-size: 13px; }
+  .brochure-section { padding: 58px 19px; }
+  .footer-links { gap: 17px; }
 }
 
 /* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   *,
   *::before,

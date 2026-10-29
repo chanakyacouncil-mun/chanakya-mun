@@ -17,6 +17,8 @@ const REGISTER_URL =
 const BROCHURE_URL =
   'https://drive.google.com/file/d/1ChDsQg5mgs1BUsv8aG48RJZXtixpHa05/view';
 
+const LOGO_URL = '/chanakya-council-logo.png';
+
 const faqs = [
   {
     question: 'What is The Chanakya Council MUN?',
@@ -33,11 +35,7 @@ const faqs = [
     answer: (
       <>
         Use the{' '}
-        <a
-          href={REGISTER_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={REGISTER_URL} target="_blank" rel="noreferrer">
           official registration page
         </a>{' '}
         to view the available details and complete your registration.
@@ -49,11 +47,7 @@ const faqs = [
     answer: (
       <>
         You can read the{' '}
-        <a
-          href={BROCHURE_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={BROCHURE_URL} target="_blank" rel="noreferrer">
           conference brochure
         </a>{' '}
         for more information. Please refer to the official
@@ -72,22 +66,19 @@ export default function App() {
     <main>
       {/* HERO SECTION */}
       <section className="hero" id="home">
-        <nav
-          className="floating-nav"
-          aria-label="Main navigation"
-        >
+        <nav className="floating-nav" aria-label="Main navigation">
+          {/* NAVBAR LOGO */}
           <a
             className="nav-wordmark"
             href="#home"
             onClick={closeMenu}
             aria-label="The Chanakya Council home"
           >
-            <span className="nav-wordmark-main">
-              CHANAKYA
-            </span>
-            <span className="nav-wordmark-sub">
-              चाणक्य MUN
-            </span>
+            <img
+              className="nav-council-logo"
+              src={LOGO_URL}
+              alt="The Chanakya Council"
+            />
           </a>
 
           <button
@@ -99,34 +90,17 @@ export default function App() {
                 : 'Open navigation menu'
             }
             aria-expanded={menuOpen}
-            onClick={() =>
-              setMenuOpen((open) => !open)
-            }
+            onClick={() => setMenuOpen((open) => !open)}
           >
-            {menuOpen ? (
-              <X size={22} />
-            ) : (
-              <Menu size={22} />
-            )}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <div
-            className={`nav-links${
-              menuOpen ? ' nav-open' : ''
-            }`}
-          >
-            <a href="#home" onClick={closeMenu}>
-              HOME
-            </a>
-            <a href="#about" onClick={closeMenu}>
-              ABOUT
-            </a>
-            <a href="#faq" onClick={closeMenu}>
-              FAQ
-            </a>
-            <a href="#brochure" onClick={closeMenu}>
-              BROCHURE
-            </a>
+          <div className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
+            <a href="#home" onClick={closeMenu}>HOME</a>
+            <a href="#about" onClick={closeMenu}>ABOUT</a>
+            <a href="#faq" onClick={closeMenu}>FAQ</a>
+            <a href="#brochure" onClick={closeMenu}>BROCHURE</a>
+
             <a
               className="nav-register"
               href={REGISTER_URL}
@@ -140,19 +114,20 @@ export default function App() {
         </nav>
 
         <div className="hero-content">
-          <p className="hero-eyebrow">
-            THE CHANAKYA COUNCIL
-          </p>
+          <p className="hero-eyebrow">THE CHANAKYA COUNCIL</p>
+
+          {/* MAIN LOGO WITH SMALLER CHANAKYA TITLE BELOW */}
+          <img
+            className="hero-council-logo"
+            src={LOGO_URL}
+            alt="The Chanakya Council emblem"
+          />
 
           <h1 className="hero-title">CHANAKYA</h1>
 
-          <p className="hero-hindi-title">
-            चाणक्य MUN
-          </p>
+          <p className="hero-hindi-title">चाणक्य MUN</p>
 
-          <p className="hero-subtitle">
-            Model United Nation
-          </p>
+          <p className="hero-subtitle">Model United Nation</p>
 
           <div
             className="hero-date"
@@ -171,8 +146,7 @@ export default function App() {
           </p>
 
           <p className="hero-english-slogan">
-            Leadership through policy, victory through
-            reasoning
+            Leadership through policy, victory through reasoning
           </p>
 
           <div className="hero-actions">
@@ -210,10 +184,7 @@ export default function App() {
               <span>Join from anywhere</span>
             </span>
 
-            <Globe2
-              className="location-globe"
-              size={23}
-            />
+            <Globe2 className="location-globe" size={23} />
           </a>
         </div>
 
@@ -226,9 +197,7 @@ export default function App() {
       {/* ABOUT SECTION */}
       <section className="about-section" id="about">
         <div className="about-inner">
-          <p className="section-eyebrow">
-            ABOUT THE CONFERENCE
-          </p>
+          <p className="section-eyebrow">ABOUT THE CONFERENCE</p>
 
           <h2 className="about-title">
             Ideas into policy.
@@ -239,17 +208,16 @@ export default function App() {
           <div className="section-divider" />
 
           <p className="about-description">
-            Chanakya MUN is a platform for aspiring
-            diplomats, thoughtful debaters, and future
-            leaders to engage with global issues, develop
-            informed perspectives, and experience the art
-            of diplomacy.
+            Chanakya MUN is a platform for aspiring diplomats,
+            thoughtful debaters, and future leaders to engage with
+            global issues, develop informed perspectives, and
+            experience the art of diplomacy.
           </p>
 
           <p className="about-description">
-            Guided by the spirit of strategic thinking and
-            reasoned debate, we aim to cultivate leadership
-            through policy and victory through reasoning.
+            Guided by the spirit of strategic thinking and reasoned
+            debate, we aim to cultivate leadership through policy
+            and victory through reasoning.
           </p>
 
           <div className="about-details">
@@ -285,15 +253,12 @@ export default function App() {
       <section className="faq-section" id="faq">
         <div className="faq-inner">
           <div className="faq-heading">
-            <p className="section-eyebrow">
-              NEED TO KNOW
-            </p>
+            <p className="section-eyebrow">NEED TO KNOW</p>
 
             <h2>Frequently Asked Questions</h2>
 
             <p>
-              Quick answers to help you get ready for the
-              conference.
+              Quick answers to help you get ready for the conference.
             </p>
           </div>
 
@@ -308,9 +273,7 @@ export default function App() {
                   {faq.question}
                 </summary>
 
-                <p className="faq-answer">
-                  {faq.answer}
-                </p>
+                <p className="faq-answer">{faq.answer}</p>
               </details>
             ))}
           </div>
@@ -318,10 +281,7 @@ export default function App() {
       </section>
 
       {/* BROCHURE SECTION */}
-      <section
-        className="brochure-section"
-        id="brochure"
-      >
+      <section className="brochure-section" id="brochure">
         <div className="brochure-inner">
           <div className="brochure-icon">
             <BookOpen size={25} />
@@ -334,9 +294,8 @@ export default function App() {
           <h2>Explore the Brochure</h2>
 
           <p>
-            Find the conference information, review the
-            details, and get ready to take part in the
-            conversation.
+            Find the conference information, review the details,
+            and get ready to take part in the conversation.
           </p>
 
           <a
@@ -345,8 +304,7 @@ export default function App() {
             target="_blank"
             rel="noreferrer"
           >
-            Open Conference Brochure{' '}
-            <ArrowRight size={16} />
+            Open Conference Brochure <ArrowRight size={16} />
           </a>
         </div>
       </section>
@@ -357,9 +315,7 @@ export default function App() {
           CHANAKYA
         </a>
 
-        <p className="footer-hindi">
-          चाणक्य परिषद
-        </p>
+        <p className="footer-hindi">चाणक्य परिषद</p>
 
         <p className="footer-tagline">
           नीति से नेतृत्व, तर्क से विजय
@@ -370,26 +326,18 @@ export default function App() {
           <a href="#about">About</a>
           <a href="#faq">FAQs</a>
 
-          <a
-            href={BROCHURE_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={BROCHURE_URL} target="_blank" rel="noreferrer">
             Brochure
           </a>
 
-          <a
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={REGISTER_URL} target="_blank" rel="noreferrer">
             Register
           </a>
         </div>
 
         <p className="footer-copyright">
-          © {new Date().getFullYear()} The Chanakya
-          Council. All rights reserved.
+          © {new Date().getFullYear()} The Chanakya Council.
+          All rights reserved.
         </p>
       </footer>
     </main>

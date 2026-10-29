@@ -17,7 +17,7 @@ const REGISTER_URL =
 const BROCHURE_URL =
   'https://drive.google.com/file/d/1ChDsQg5mgs1BUsv8aG48RJZXtixpHa05/view';
 
-const LOGO_URL = '/chanakya-council-logo.png';
+const LOGO_URL = '/chanakya-council-logo.jpg';
 
 const faqs = [
   {

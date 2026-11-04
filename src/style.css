@@ -56,9 +56,7 @@ img {
   max-width: 100%;
 }
 
-/* ==========================================
-   HERO AND BACKGROUND
-   ========================================== */
+/* HERO AND BACKGROUND */
 
 .hero {
   position: relative;
@@ -93,9 +91,7 @@ img {
   z-index: 1;
 }
 
-/* ==========================================
-   NAVIGATION
-   ========================================== */
+/* NAVIGATION */
 
 .floating-nav {
   position: relative;
@@ -124,12 +120,15 @@ img {
   line-height: 0;
 }
 
+/* CIRCULAR NAVBAR LOGO */
+
 .nav-council-logo {
   display: block;
-  width: 125px;
+  width: 72px;
   height: 72px;
-  object-fit: contain;
-  object-position: left center;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
   mix-blend-mode: multiply;
 }
 
@@ -182,9 +181,7 @@ img {
   cursor: pointer;
 }
 
-/* ==========================================
-   HERO BRANDING AND TEXT
-   ========================================== */
+/* HERO BRANDING AND TEXT */
 
 .hero-content {
   width: min(100%, 720px);
@@ -204,17 +201,19 @@ img {
   line-height: 1.8;
 }
 
-/* Council emblem above CHANAKYA */
+/* CIRCULAR MAIN LOGO */
+
 .hero-council-logo {
   display: block;
-  width: clamp(105px, 13vw, 145px);
-  height: 112px;
-  object-fit: contain;
-  margin: 0 auto 2px;
+  width: clamp(108px, 13vw, 145px);
+  height: clamp(108px, 13vw, 145px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin: 0 auto 8px;
   mix-blend-mode: multiply;
 }
 
-/* Smaller CHANAKYA heading below the emblem */
 .hero-title {
   margin: 0;
   color: #176b70;
@@ -292,9 +291,7 @@ img {
   line-height: 1.8;
 }
 
-/* ==========================================
-   BUTTONS
-   ========================================== */
+/* BUTTONS */
 
 .hero-actions {
   display: flex;
@@ -342,9 +339,7 @@ img {
   border-color: var(--green-dark);
 }
 
-/* ==========================================
-   ONLINE CARD
-   ========================================== */
+/* ONLINE CARD */
 
 .location-card {
   width: min(100%, 330px);
@@ -396,9 +391,7 @@ img {
   color: var(--green);
 }
 
-/* ==========================================
-   DISCOVER LINK
-   ========================================== */
+/* DISCOVER LINK */
 
 .scroll-cue {
   display: flex;
@@ -427,9 +420,7 @@ img {
   }
 }
 
-/* ==========================================
-   ABOUT SECTION
-   ========================================== */
+/* ABOUT SECTION */
 
 .about-section {
   padding: 100px 24px;
@@ -476,6 +467,191 @@ img {
   line-height: 2;
 }
 
+.about-description strong {
+  color: #3d6046;
+  font-weight: 700;
+}
+
+/* COUNCIL INTRODUCTION */
+
+.about-council-block {
+  margin: 58px auto 0;
+  padding-top: 42px;
+  border-top: 1px solid rgba(102, 81, 58, 0.18);
+}
+
+.about-mini-eyebrow {
+  margin: 0 0 12px;
+  color: #8a7048;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.about-subtitle {
+  max-width: 650px;
+  margin: 0 auto 14px;
+  color: #2d4938;
+  font-family: var(--serif);
+  font-size: clamp(30px, 5vw, 43px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+/* FOUNDER CARD */
+
+.founder-card {
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 38px auto 0;
+  padding: 27px 30px;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(102, 81, 58, 0.17);
+  border-radius: 17px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(75, 71, 49, 0.035);
+}
+
+.founder-monogram {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f7f0e2;
+  background: #315d43;
+  border: 1px solid rgba(169, 134, 77, 0.75);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.founder-copy {
+  min-width: 0;
+}
+
+.founder-label {
+  color: #8a7048;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.founder-copy h3 {
+  margin: 5px 0 7px;
+  color: #293c2e;
+  font-family: var(--serif);
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.founder-copy p {
+  margin: 0;
+  color: #6f6a5d;
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* VISION AND MISSION */
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+  text-align: left;
+}
+
+.pillar-card {
+  min-height: 190px;
+  padding: 25px 25px 23px;
+  background: rgba(255, 255, 255, 0.43);
+  border: 1px solid rgba(33, 132, 78, 0.15);
+  border-radius: 14px;
+}
+
+.pillar-number {
+  color: #a9864d;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.pillar-card h3 {
+  margin: 8px 0 8px;
+  color: #2d4938;
+  font-family: var(--serif);
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.pillar-card p {
+  margin: 0;
+  color: #706a5d;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* CORE VALUES */
+
+.values-block {
+  margin: 55px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid rgba(102, 81, 58, 0.18);
+}
+
+.values-heading {
+  margin: 0 auto 25px;
+  color: #2d4938;
+  font-family: var(--serif);
+  font-size: clamp(28px, 4.5vw, 39px);
+  font-weight: 600;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.value-item {
+  padding: 23px 17px;
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(102, 81, 58, 0.14);
+  border-radius: 13px;
+}
+
+.value-symbol {
+  color: #a9864d;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.value-item h4 {
+  margin: 8px 0 6px;
+  color: #315d43;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.value-item p {
+  margin: 0;
+  color: #706a5d;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* CONFERENCE DETAILS */
+
 .about-details {
   display: flex;
   align-items: stretch;
@@ -520,9 +696,7 @@ img {
   margin-top: 32px;
 }
 
-/* ==========================================
-   FAQ SECTION
-   ========================================== */
+/* FAQ SECTION */
 
 .faq-section {
   padding: 90px 24px;
@@ -610,9 +784,7 @@ img {
   text-underline-offset: 3px;
 }
 
-/* ==========================================
-   BROCHURE SECTION
-   ========================================== */
+/* BROCHURE SECTION */
 
 .brochure-section {
   padding: 80px 24px;
@@ -665,9 +837,7 @@ img {
   background: transparent;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+/* FOOTER */
 
 .site-footer {
   padding: 45px 24px 28px;
@@ -725,9 +895,7 @@ img {
   line-height: 1.8;
 }
 
-/* ==========================================
-   TABLET
-   ========================================== */
+/* TABLET */
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero {
@@ -748,7 +916,7 @@ img {
   }
 
   .nav-council-logo {
-    width: 108px;
+    width: 64px;
     height: 64px;
   }
 
@@ -798,8 +966,8 @@ img {
   }
 
   .hero-council-logo {
-    width: 125px;
-    height: 100px;
+    width: 116px;
+    height: 116px;
   }
 
   .hero-title {
@@ -879,9 +1047,7 @@ img {
   }
 }
 
-/* ==========================================
-   MOBILE
-   ========================================== */
+/* MOBILE */
 
 @media (max-width: 480px) {
   .hero {
@@ -902,7 +1068,7 @@ img {
   }
 
   .nav-council-logo {
-    width: 94px;
+    width: 56px;
     height: 56px;
   }
 
@@ -949,9 +1115,9 @@ img {
   }
 
   .hero-council-logo {
-    width: 108px;
-    height: 90px;
-    margin-bottom: 3px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
   }
 
   .hero-title {
@@ -1047,6 +1213,53 @@ img {
     min-width: 0;
   }
 
+  .about-council-block {
+    margin-top: 43px;
+    padding-top: 34px;
+  }
+
+  .founder-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .founder-monogram {
+    width: 68px;
+    height: 68px;
+    flex-basis: 68px;
+  }
+
+  .founder-copy h3 {
+    font-size: 29px;
+  }
+
+  .about-pillars {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pillar-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .values-block {
+    margin-top: 42px;
+    padding-top: 32px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .value-item {
+    padding: 19px 20px;
+  }
+
   .faq-section {
     padding: 60px 19px;
   }
@@ -1068,9 +1281,7 @@ img {
   }
 }
 
-/* ==========================================
-   ACCESSIBILITY
-   ========================================== */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1084,5 +1295,4 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-    }
-    
+}

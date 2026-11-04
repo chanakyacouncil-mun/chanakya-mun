@@ -77,7 +77,7 @@ export default function App() {
             <img
               className="nav-council-logo"
               src={LOGO_URL}
-              alt="The Chanakya Council"
+              alt="The Chanakya Council circular emblem"
             />
           </a>
 
@@ -116,11 +116,11 @@ export default function App() {
         <div className="hero-content">
           <p className="hero-eyebrow">THE CHANAKYA COUNCIL</p>
 
-          {/* MAIN LOGO WITH SMALLER CHANAKYA TITLE BELOW */}
+          {/* CIRCULAR COUNCIL EMBLEM */}
           <img
             className="hero-council-logo"
             src={LOGO_URL}
-            alt="The Chanakya Council emblem"
+            alt="The Chanakya Council circular emblem"
           />
 
           <h1 className="hero-title">CHANAKYA</h1>
@@ -207,6 +207,7 @@ export default function App() {
 
           <div className="section-divider" />
 
+          {/* ORIGINAL ABOUT COPY — RETAINED */}
           <p className="about-description">
             Chanakya MUN is a platform for aspiring diplomats,
             thoughtful debaters, and future leaders to engage with
@@ -220,9 +221,112 @@ export default function App() {
             and victory through reasoning.
           </p>
 
+          {/* ORGANISATION INTRODUCTION */}
+          <div className="about-council-block">
+            <p className="about-mini-eyebrow">BEYOND THE CONFERENCE</p>
+
+            <h3 className="about-subtitle">
+              A Council built on ideas and initiative.
+            </h3>
+
+            <p className="about-description">
+              The Chanakya Council is a youth-led organisation founded
+              by <strong>Shivansh Dixit</strong>, with a vision to create
+              meaningful opportunities for young minds to learn, express
+              themselves, and grow into thoughtful and responsible
+              leaders. Through debate, diplomacy and intellectual
+              engagement, the Council seeks to make young voices a part
+              of conversations that matter.
+            </p>
+          </div>
+
+          {/* FOUNDER FEATURE */}
+          <div className="founder-card">
+            <div className="founder-monogram" aria-hidden="true">
+              CC
+            </div>
+
+            <div className="founder-copy">
+              <span className="founder-label">FOUNDER</span>
+
+              <h3>Shivansh Dixit</h3>
+
+              <p>
+                The Chanakya Council was founded by Shivansh Dixit
+                with the aim of building a platform where young people
+                can discover the power of informed debate, diplomatic
+                thinking and leadership.
+              </p>
+            </div>
+          </div>
+
+          {/* VISION AND MISSION */}
+          <div className="about-pillars">
+            <article className="pillar-card">
+              <span className="pillar-number">01</span>
+
+              <h3>Our Vision</h3>
+
+              <p>
+                To encourage a generation of confident, curious and
+                responsible young leaders who think critically, engage
+                constructively and contribute with purpose.
+              </p>
+            </article>
+
+            <article className="pillar-card">
+              <span className="pillar-number">02</span>
+
+              <h3>Our Mission</h3>
+
+              <p>
+                To provide an engaging platform for diplomacy, research,
+                public speaking, negotiation and policy-oriented
+                discussion through meaningful youth-led initiatives.
+              </p>
+            </article>
+          </div>
+
+          {/* CORE VALUES */}
+          <div className="values-block">
+            <p className="about-mini-eyebrow">WHAT GUIDES US</p>
+
+            <h3 className="values-heading">
+              The principles behind our purpose.
+            </h3>
+
+            <div className="values-grid">
+              <div className="value-item">
+                <span className="value-symbol">I</span>
+                <h4>Diplomacy</h4>
+                <p>
+                  Listening, understanding and finding common ground.
+                </p>
+              </div>
+
+              <div className="value-item">
+                <span className="value-symbol">II</span>
+                <h4>Leadership</h4>
+                <p>
+                  Taking initiative and leading with responsibility.
+                </p>
+              </div>
+
+              <div className="value-item">
+                <span className="value-symbol">III</span>
+                <h4>Reasoning</h4>
+                <p>
+                  Thinking critically and building arguments with purpose.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ORIGINAL CONFERENCE DETAILS — RETAINED */}
           <div className="about-details">
             <div className="detail-item">
               <CalendarDays size={25} />
+
               <div>
                 <span>CONFERENCE DATES</span>
                 <strong>16–17 January 2027</strong>
@@ -231,6 +335,7 @@ export default function App() {
 
             <div className="detail-item">
               <Globe2 size={25} />
+
               <div>
                 <span>CONFERENCE MODE</span>
                 <strong>Online</strong>
@@ -342,4 +447,4 @@ export default function App() {
       </footer>
     </main>
   );
-            }
+                }
